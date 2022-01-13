@@ -95,3 +95,15 @@ Spring Boot applications are spring bases web applications. So, it is secure by 
 | There is no requirement for a deployment descriptor. | A Deployment descriptor is required. |
 | It avoids boilerplate code and wraps dependencies together in a single unit. | It specifies each dependency separately. |
 | It reduces development time and increases productivity. | It takes more time to achieve the same. |
+
+## Spring Boot Architecture
+Spring Boot is a module of the Spring Framework. It is used to create stand-alone, production-grade Spring Based Applications with minimum efforts. It is developed on top of the core Spring Framework.
+
+Spring Boot follows a layered architecture in which each layer communicates with the layer directly below or above (hierarchical structure) it.
+
+Before understanding the Spring Boot Architecture, we must know the different layers and classes present in it. There are four layers in Spring Boot are as follows:
+
+- Presentation Layer
+- Business Layer
+- Persistence Layer
+- Database Layer
