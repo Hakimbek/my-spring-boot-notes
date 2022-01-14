@@ -433,3 +433,5 @@ public class AopReturningAdviceApplication {
 
 }
 ```
+
+# After Throwing Advice Example
