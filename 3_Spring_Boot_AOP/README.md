@@ -291,3 +291,145 @@ public class AopAroundAdviceApplication {
 
 }
 ```
+
+# Returning Advice Example
+
+### Acount.java
+Create a class with the name Account in the package **io.spring.boot.model**.
+
+In the Account class, do the following:
+
+- Defined two variables accountNumber and accountType of type String.
+- Generate Constructor using Fields
+- Generate Getters and Setters.
+- Generate a toString()
+
+```java
+public class Account {
+
+    private String accountNumber;
+    private String accountType;
+
+    public Account(String accountNumber, String accountType) {
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    @Override
+    public String toString() {
+        return "Account [accountNumber=" + accountNumber + ", accountType=" + accountType + "]";
+    }
+
+}
+```
+
+### AccountService.java
+Create an interface with the name AccountService in the package **io.spring.boot.model.impl**.
+
+```java
+public interface AccountService {
+
+    public abstract Account getAccountByCustomerId(String customerId) throws Exception;
+
+}
+```
+
+### AccountServiceImpl.java
+In the **io.spring.boot.model.impl** package, create a class with the name AccountServiceImple.
+
+In this class, we have defined account service.
+
+```java
+public class AccountServiceImpl implements AccountService {
+
+    //storing account detail in the HashMap  
+    private static Map<String, Account> map = null;
+
+    static {
+        map = new HashMap<>();
+        //adding account detail in the map  
+        map.put("M4546779", new Account("10441117000", "Saving Account"));
+        map.put("K2434567", new Account("10863554577", "Current Account"));
+    }
+
+    @Override
+    public Account getAccountByCustomerId(String customerId) throws Exception {
+        if (customerId == null) {
+            throw new Exception("Invalid! Customer Id");
+        }
+        Account account = null;
+        Set<Map.Entry<String, Account>> entrySet = map.entrySet();
+        for (Map.Entry<String, Account> entry : entrySet) {
+            if (entry.getKey().equals(customerId)) {
+                account = entry.getValue();
+            }
+        }
+        return account;
+    }
+
+}
+```
+
+### AccountAspect.java
+Create a class with the name AccountAspect in the package **io.spring.boot**.
+In this class, we have implemented the after returning advice by using the annotation **@AfterReturning**. We have also defined a method **afterReturningAdvice()** method.
+
+`Note: The name (account) that we define in the returning attribute must correspond to the name of a parameter in the advice method.`
+
+```java
+@Aspect
+@Component
+public class AccountAspect {
+
+    //implementing after returning advice
+    @AfterReturning(value = "execution(* com.example.aopreturningadvice.io.spring.boot.service.impl.AccountServiceImpl.*(..))", returning = "account")
+    public void afterReturningAdvice(JoinPoint joinPoint, Account account) {
+        System.out.println("After Returning method:" + joinPoint.getSignature());
+        System.out.println(account);
+    }
+
+}
+```
+
+### Main class
+Open the runable file and add an annotation **@EnableAspectJAutoProxy**.
+
+The annotation enables support for handling components marked with AspectJ's **@Aspect** annotation. It is used with @Configuration annotation.
+We have used the **proxyTargetClass** attribute of the annotation **@EnableAspectJAutoProxy**. The attribute **proxyTargetClass=true** allows us to use CGLIB (Code Generation Library) proxies instead of the default interface-based JDK proxy approach.
+
+```java
+@SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass=true)
+public class AopReturningAdviceApplication {
+
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(AopReturningAdviceApplication.class, args);
+        AccountServiceImpl accountServiceImpl = context.getBean(AccountServiceImpl.class);
+        Account account;
+        try {
+            account = accountServiceImpl.getAccountByCustomerId("K2434567");
+            if (account != null)
+                System.out.println(account.getAccountNumber() + "\t" + account.getAccountType());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+}
+```
