@@ -214,3 +214,20 @@ Open the browser and invoke the following
 `URL : http://localhost:8080/add/employee?empId=1&firstName=Hakim&secondName=Bahramov`
 
 In the above URL, /add/employee is the mapping that we have created in the Controller class. We have used two separators (?) and (&) for separating two values.
+
+
+## After Advice Example
+We change only **EmployeeServiceAspect** class and other classes remain unchanged
+
+```java
+@Aspect
+@Component
+public class EmployeeServiceAspect {
+
+    @After(value = "execution(* com.example.after.io.spring.boot.service.EmployeeService.* (..)) && args(empId, firstName, secondName)")
+    public void beforeAdvice(JoinPoint joinPoint, String empId, String firstName, String secondName) {
+        System.out.println("After method:" + joinPoint.getSignature());
+        System.out.println("Creating Employee with first name - " + firstName + ", second name - " + secondName + " and id - " + empId);
+    }
+}
+```
