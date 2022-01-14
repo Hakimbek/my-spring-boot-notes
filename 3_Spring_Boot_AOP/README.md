@@ -73,3 +73,142 @@ The aspects have the responsibility that is to be implemented, called **advice**
 - **After Returning Advice:** An advice that executes when a method executes successfully.
 
 `Before implementing the AOP in an application, we are required to add Spring AOP dependency in the pom.xml file.`
+
+## Before Advice Example
+
+### Step 1 
+Open the **pom.xml** file and add the following AOP dependency. It is a starter for aspect-oriented programming with Spring AOP and AspectJ.
+
+```xml
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-aop</artifactId>
+   <version>latest-ver</version>
+</dependency> 
+```
+
+### Step 2
+Add an annotation **@EnableAspectJAutoProxy** to main class.
+It enables support for handling components marked with AspectJ’s **@Aspect** annotation. It is used with @Configuration annotation. We can control the type of proxy by using the proxyTargetClass attribute. Its default value is false.
+
+```java
+@SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+public class BeforeApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BeforeApplication.class, args);
+    }
+
+
+```
+
+## Step 3
+Create a model class under the package **io.spring.boot.model**. We have created a class with the name **Employee**. In the class, define the following:
+- Define three variables empId, firstName, and secondName of type String.
+- Generate Getters and Setters.
+- Create a default constructor
+
+```java
+public class Employee {
+    private String empId;
+    private String firstName;
+    private String secondName;
+
+    //default constructor
+    public Employee() {
+    }
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+}
+```
+
+## Step 4 
+Create a controller class under the package **com.javatpoint.controller**. We have created a class with the name **EmployeeController**.
+In the controller class, we have defined the two mappings one for adding an employee and the other for removing an employee.
+
+```java
+@RestController
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @RequestMapping(value = "/add/employee", method = RequestMethod.POST)
+    public Employee addEmployee(@RequestParam("empId") String empId, @RequestParam("firstName") String firstName, @RequestParam("secondName") String secondName) {
+        return employeeService.createEmployee(empId, firstName, secondName);
+    }
+
+    @RequestMapping(value = "/remove/employee", method = RequestMethod.GET)
+    public String removeEmployee(@RequestParam("empId") String empId) {
+        employeeService.deleteEmployee(empId);
+        return "Employee removed";
+    }
+
+}
+```
+
+## Step 5
+Create a Service class under the package **com.javatpoint.service**. We have created a class with the name **EmployeeService**.
+In the Service class, we have defined two methods **createEmployee** and **deleteEmployee**.
+
+```java
+@Service
+public class EmployeeService {
+
+    public Employee createEmployee(String empId, String firstName, String secondName) {
+        Employee emp = new Employee();
+        emp.setEmpId(empId);
+        emp.setFirstName(firstName);
+        emp.setSecondName(secondName);
+        return emp;
+    }
+
+    public void deleteEmployee(String empId) {
+    }
+}
+```
+
+## Step 6 
+Create an aspect class under the package **com.javatpoint.aspect**. We have created a class with the name **EmployeeServiceAspect**.
+In the aspect class, we have defined the before advice logic.
+
+```java
+@Aspect
+@Component
+public class EmployeeServiceAspect {
+
+    @Before(value = "execution(* com.example.aopbeforeadviceexample.io.spring.boot.service.EmployeeService.* (..)) && args(empId, firstName, secondName)")
+    public void beforeAdvice(JoinPoint joinPoint, String empId, String firstName, String secondName) {
+        System.out.println("Before method:" + joinPoint.getSignature());
+        System.out.println("Creating Employee with first name - " + firstName + ", second name - " + secondName + " and id - " + empId);
+    }
+}
+```
+
+## Step 7
+**Run**
+Open the browser and invoke the following URL : http://localhost:8080/add/employee?empId=1&firstName=Hakim&secondName=Bahramov
+In the above URL, /add/employee is the mapping that we have created in the Controller class. We have used two separators (?) and (&) for separating two values.
