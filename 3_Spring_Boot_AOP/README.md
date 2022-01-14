@@ -74,7 +74,7 @@ The aspects have the responsibility that is to be implemented, called **advice**
 
 `Before implementing the AOP in an application, we are required to add Spring AOP dependency in the pom.xml file.`
 
-## Before Advice Example
+# Before Advice Example
 
 ### Step 1 
 Open the **pom.xml** file and add the following AOP dependency. It is a starter for aspect-oriented programming with Spring AOP and AspectJ.
@@ -216,7 +216,7 @@ Open the browser and invoke the following
 In the above URL, /add/employee is the mapping that we have created in the Controller class. We have used two separators (?) and (&) for separating two values.
 
 
-## After Advice Example
+# After Advice Example
 We change only **EmployeeServiceAspect** class and other classes remain unchanged
 
 ```java
@@ -229,5 +229,65 @@ public class EmployeeServiceAspect {
         System.out.println("After method:" + joinPoint.getSignature());
         System.out.println("Creating Employee with first name - " + firstName + ", second name - " + secondName + " and id - " + empId);
     }
+}
+```
+
+# Around Advice Example
+
+### BankService.java
+Create a class in the **io.spring.boot.service**. package with the name **BankService**.
+
+In this class, we have defined a method named **displayBalance()**. It checks the account number. If the account number is matched returns total amount, else returns a message.
+
+```java
+```
+
+### BankAspect.java
+Create a class in the **io.spring.boot.aspect** package with the name **BankAspect**.
+
+In the following class, we have defined two methods named **logDisplayingBalance()** and **aroundAdvice()** method.
+
+```java
+@Aspect
+@Component
+public class BankAspect {
+
+    //Displays all the available methods i.e. the advice will be called for all the methods
+    @Pointcut(value = "execution(* com.example.aoparoundadvice.io.spring.boot.service.BankService.*(..))")
+    private void logDisplayingBalance() {
+    }
+
+    //Declares the around advice that is applied before and after the method matching with a pointcut expression
+    @Around(value = "logDisplayingBalance()")
+    public Object aroundAdvice(ProceedingJoinPoint jp) throws Throwable {
+        System.out.println("The method aroundAdvice() before invocation of the method " + jp.getSignature().getName() + " method");
+        Object proceed = jp.proceed();
+        System.out.println("The method aroundAdvice() after invocation of the method " + jp.getSignature().getName() + " method");
+        return proceed;
+    }
+
+}
+```
+
+### Main.java
+Open runable file and add an annotation **@EnableAspectJAutoProxy**.
+The annotation enables support for handling components marked with AspectJ's **@Aspect** annotation. It is used with @Configuration annotation.
+
+**ConfigurableApplicationContext** is an interface that provides facilities to configure an application context in addition to the application context client methods in the ApplicationContext.
+
+```java
+@SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+public class AopAroundAdviceApplication {
+
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(AopAroundAdviceApplication.class, args);
+        // Fetching the employee object from the application context.
+        BankService bank = context.getBean(BankService.class);
+        String accNumber = "12345";
+        bank.displayBalance(accNumber);
+        context.close();
+    }
+
 }
 ```
