@@ -435,3 +435,22 @@ public class AopReturningAdviceApplication {
 ```
 
 # After Throwing Advice Example
+
+We will use the previous example in **After Throwing** example.
+There is only one class that you must change. It is **AccountAspect** class.
+
+### AccountAspect.java
+
+```java
+@Aspect
+@Component
+public class AccountAspect {
+    //implementing after throwing advice      
+    @AfterThrowing(value = "execution(* com.example.aopafterthrow.io.spring.boot.service.impl.AccountServiceImpl.*(..))", throwing = "ex")
+    public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
+        System.out.println("After Throwing exception in method:" + joinPoint.getSignature());
+        System.out.println("Exception is:" + ex.getMessage());
+    }
+}
+```
+`Note: The name (ex) that we define in the throwing attribute must correspond to the name of a parameter in the advice method. Otherwise, advice will not run.`
