@@ -27,6 +27,7 @@ The following **spring-boot-starter-parent** inherits automatically when we conf
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 ```
+
 > Note: In the above dependency, we have specified only the Spring Boot version. If we want to add additional starters, simply remove the `<version>` tag. Similarly, we can also override the individual dependency by overriding a property in our project.
   
 For example, if we want to add another dependency with the same artifact that we have injected already, inject that dependency again inside the `<properties>` tag to override the previous one.
@@ -56,6 +57,7 @@ We can also add Maven plugin in our **pom.xml** file. It wraps the project into 
 
 ### Spring Boot without Parent POM
 If we don't want to use **spring-boot-starter-parent** dependency, but still want to take the advantage of the dependency management, we can use `<scope>` tag, as follows:
+
 > Note: It does not maintain the plugin management.
 
 ```xml
