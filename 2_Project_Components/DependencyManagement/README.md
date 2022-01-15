@@ -27,3 +27,4 @@ The following **spring-boot-starter-parent** inherits automatically when we conf
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
   ```
+> Note: In the above dependency, we have specified only the Spring Boot version. If we want to add additional starters, simply remove the <version> tag. Similarly, we can also override the individual dependency by overriding a property in our project.
