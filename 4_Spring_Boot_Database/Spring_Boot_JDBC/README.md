@@ -136,6 +136,19 @@ spring.jpa.hibernate.ddl-auto=create-drop
 Creating a controller to handle HTTP requests.
 
 ```java
+@RestController
+public class SpringBootJdbcController {
+
+    @Autowired
+    JdbcTemplate jdbc;
+
+    @RequestMapping("/insert")
+    public String index() {
+        jdbc.execute("insert into " + "\"" + "user" + "\"" + " values(2, 'Hakim','hakim@gmail.com')");
+        return "Data inserted Successfully";
+    }
+
+}
 ```
 
 Run main file as Javaapplication.
