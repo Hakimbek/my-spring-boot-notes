@@ -101,6 +101,8 @@ For example, to upgrade another **spring-data-releasetrain**, add the following 
 </dependencyManagement> 
 ```
 
+---
+
 ## Spring Boot Application Properties
 Spring Boot Framework comes with a built-in mechanism for application configuration using a file called **application.properties**. It is located inside the **src/main/resources** folder.
 
