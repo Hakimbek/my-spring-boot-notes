@@ -64,3 +64,14 @@ On the other hand, we can also skip the connection pool scanning algorithm that 
 ```properties
 Spring.datasource.type=org.apache.tomcat.jdbc.pool.DataSource  
 ```
+
+If we want to connect to PostgreSQL database, we need to include the JDBC driver in the application's classpath:
+
+```xml
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.3.1</version>
+</dependency>
+
+```
