@@ -35,14 +35,12 @@ We can also configure a connection pool manually, if we do not want to use the d
 <dependency>  
   <groupId>org.springframework.boot</groupId>  
   <artifactId>spring-boot-starter-data-jpa</ artifactId >  
-  
   <exclusions>  
     <exclusion>  
       <groupId>com.zaxxer</groupId>  
       <artifactId>HikariCP</ artifactId >  
       </exclusion>  
   </exclusions>  
-  
 </dependency>  
 
 <dependency>  
