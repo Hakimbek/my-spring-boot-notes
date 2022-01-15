@@ -75,3 +75,4 @@ If we want to connect to PostgreSQL database, we need to include the JDBC driver
 </dependency>
 
 ```
+After that, define the datasoure properties in **application.properties** file.
