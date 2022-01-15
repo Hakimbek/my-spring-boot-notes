@@ -122,5 +122,20 @@ create table user(
   name varchar(100), 
   email varchar(100));
 ```
+## Step 3
+Creating Spring Boot project and after onfigure database into **application.properties** file.
 
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/spring_boot_jdbc 
+spring.datasource.username=postgres  
+spring.datasource.password=5657  
+spring.jpa.hibernate.ddl-auto=create-drop  
+```
 
+## Step 4
+Creating a controller to handle HTTP requests.
+
+```java
+```
+
+Run main file as Javaapplication.
