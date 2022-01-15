@@ -101,9 +101,7 @@ For example, to upgrade another **spring-data-releasetrain**, add the following 
 </dependencyManagement> 
 ```
 
----
-
-## Spring Boot Application Properties
+# Spring Boot Application Properties
 Spring Boot Framework comes with a built-in mechanism for application configuration using a file called **application.properties**. It is located inside the **src/main/resources** folder.
 
 Spring Boot provides various properties that can be configured in the **application.properties** file. The properties have default values. We can set a property(s) for the Spring Boot application. Spring Boot also allows us to define our own property if required.
@@ -161,7 +159,7 @@ There are sixteen categories of Spring Boot Property are as follows:
 # Spring Boot Starters
 Spring Boot provides a number of starters that allow us to add jars in the classpath. Spring Boot built-in starters make development easier and rapid. Spring Boot Starters are the dependency descriptors.
 
-In the Spring Boot Framework, all the starters follow a similar naming pattern: **spring-boot-starter-***, where *** denotes a particular type of application. For example, if we want to use Spring and JPA for database access, we need to include the spring-boot-starter-data-jpa dependency in our pom.xml file of the project.
+In the Spring Boot Framework, all the starters follow a similar naming pattern: **spring-boot-starter-`*`**, where `*` denotes a particular type of application. For example, if we want to use Spring and JPA for database access, we need to include the spring-boot-starter-data-jpa dependency in our pom.xml file of the project.
 
 Third-Party Starters
 We can also include third party starters in our project. But we do not use spring-boot-starter for including third party dependency. The spring-boot-starter is reserved for official Spring Boot artifacts. The third-party starter starts with the name of the project. For example, the third-party project name is abc, then the dependency name will be abc-spring-boot-starter.
