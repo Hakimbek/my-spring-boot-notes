@@ -6,3 +6,4 @@
   - ### [Spring Boot AOP](3_Spring_Boot_AOP/README.md)
   - ### Spring Boot Database
     - [Spring Boot JPA](4_Spring_Boot_Database/Spring_Data_JPA/README.md)
+    - [Spring Boot JDBC](4_Spring_Boot_Database/Spring_Boot_JDBC/README.md)
