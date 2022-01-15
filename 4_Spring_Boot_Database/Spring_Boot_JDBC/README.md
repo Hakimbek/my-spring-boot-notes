@@ -56,3 +56,11 @@ We can also configure a connection pool manually, if we do not want to use the d
   <socpe>runtime</scoope>  
 </dependency>  
 ```
+
+The above approach allows us to use Tomcat connection pool without having to write a @Configuration class and programmatically define a DataSource bean.
+
+On the other hand, we can also skip the connection pool scanning algorithm that Spring Boot uses. We can explicitly specify a connection pooling datasource by adding the property **spring.datasource.type** in the **application.properties** file.
+
+```properties
+Spring.datasource.type=org.apache.tomcat.jdbc.pool.DataSource  
+```
