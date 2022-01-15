@@ -15,3 +15,15 @@ The Maven project inherits the following features from spring-boot-starter-paren
 - Dependencies, inherited from the spring-boot-dependencies POM
 - Sensible resource filtering
 - Sensible plugin configuration
+  
+## Inheriting Starter Parent
+The following **spring-boot-starter-parent** inherits automatically when we configure the project.
+  
+  ```xml
+  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+  ```
