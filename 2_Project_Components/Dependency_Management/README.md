@@ -16,5 +16,85 @@ The Maven project inherits the following features from spring-boot-starter-paren
 - Sensible resource filtering
 - Sensible plugin configuration
 
-Inheriting Starter Parent
-The following spring-boot-starter-parent inherits automatically when we configure the project.
+### Inheriting Starter Parent
+The following **spring-boot-starter-parent** inherits automatically when we configure the project.
+
+```xml
+<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+```
+> Note: In the above dependency, we have specified only the Spring Boot version. If we want to add additional starters, simply remove the `<version>` tag. Similarly, we can also override the individual dependency by overriding a property in our project.
+  
+For example, if we want to add another dependency with the same artifact that we have injected already, inject that dependency again inside the `<properties>` tag to override the previous one.
+  
+### Changing the Java version
+We can also change the Java version by using the `<java.version>` tag.
+
+```xml
+<properties>
+    <java.version>11</java.version>
+</properties>
+```
+
+### Adding Spring Boot Maven Plugin
+We can also add Maven plugin in our **pom.xml** file. It wraps the project into an executable jar file.
+
+```xml
+<build>
+   <plugins>
+       <plugin>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-maven-plugin</artifactId>
+       </plugin>
+   </plugins>
+</build>
+```
+
+### Spring Boot without Parent POM
+If we don't want to use **spring-boot-starter-parent** dependency, but still want to take the advantage of the dependency management, we can use `<scope>` tag, as follows:
+> Note: It does not maintain the plugin management.
+
+```xml
+<dependencyManagement>  
+  <dependencies>  
+    <dependency><!-- Import dependency management from Spring Boot -->  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-dependencies</artifactId>  
+      <version>2.2.2.RELEASE</version>  
+      <type>pom</type>  
+      <scope>import</scope>  
+    </dependency>  
+  </dependencies>  
+</dependencyManagement>  
+```
+
+The above dependency does not allow overriding. To achieve the overriding, we need to add an entry inside the `<dependencyManagement>` tag of our project before the spring-boot-dependencies entry.
+
+For example, to upgrade another **spring-data-releasetrain**, add the following dependency in the **pom.xml** file.
+
+```xml
+<dependencyManagement>  
+  <dependencies>  
+  <!--Override Spring Data release train-->  
+    <dependency>  
+      <groupId>org.springframework.data</groupId>  
+      <artifactId>spring-data-releasetrain</artifactId>  
+      <version>Fowler-SR2</version>  
+      <type>pom</type>  
+      <scope>import</scope>  
+    </dependency>  
+    
+    <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-dependencies</artifactId>  
+      <version>2.2.2.RELEASE</version>  
+      <type>pom</type>  
+      <scope>import</scope>  
+    </dependency>  
+  </dependencies>  
+</dependencyManagement> 
+```
