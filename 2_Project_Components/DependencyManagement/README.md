@@ -35,5 +35,24 @@ For example, if we want to add another dependency with the same artifact that we
 We can also change the Java version by using the **<java.version>** tag.
   
 ```xml
-  
+  <properties>
+        <java.version>11</java.version>
+    </properties>
 ```
+
+### Adding Spring Boot Maven Plugin
+We can also add Maven plugin in our **pom.xml** file. It wraps the project into an executable jar file.
+  
+  ```xml
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+  ```
+  
+### Spring Boot without Parent POM
+If we don't want to use **spring-boot-starter-parent dependency**, but still want to take the advantage of the dependency management, we can use **<scope>** tag, as follows:
