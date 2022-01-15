@@ -83,3 +83,44 @@ spring.datasource.password=****
 spring.datasource.username=name
 
 ```
+
+## Why should we use Spring Boot JDBC?
+The functionality of Spring JDBC and Spring Boot JDBC is the same except the implementations. There are following advantages of Spring Boot JBDC over Spring JDBC:
+
+| Spring Boot JDBC | Spring JDBC |
+| ---------------- | ----------- |
+| There is only a **spring-boot-starter-jdbc** dependency is required. | In Spring JDBC, multiple dependencies need to be configured like **spring-jdbc** and **spring-context**. |
+| It automatically configures Datasource bean, if not maintain explicitly. If we do not want to use the bean, we can set a property **spring.datasource.initialize** to **false**. | In Spring JDBC, it is necessary to create a database bean either using **XML** or **javaconfig**. |
+| We do not need to register Template beans because Spring Boot automatically registers beans. | The Template beans such as **PlatformTransactionManager, JDBCTemplate, NamedParameterJdbcTemplate** must be registered. |
+| Any DB initialization scripts stored in **.sql** file gets executed automatically. | If any DB initialization scripts like dropping or creation of tables are created in SQL file, this info needs to be given explicitly in the configuration. |
+
+## JDBC vs. Hibernate
+
+| JDBC | Hibernate |
+| ---- | --------- |
+| JDBC is a technology. | Hibernate is an ORM framework. |
+| In JDBC, the user is responsible for creating and closing the connections. | In Hibernate, the run time system takes care of creating and closing the connections |
+| It does not support lazy loading. | It supports lazy loading that offers better performance. |
+| It does not support associations (the connection between two separate classes). | It supports associations. |
+
+## Spring Boot JDBC Example
+Spring Boot provides starter and libraries for connecting to our application with JDBC. Here, we are creating an application which connects with PostgreSQL database. It includes the following steps to create and setup JDBC with Spring Boot
+
+## Step 1
+Create a database
+
+```sql
+create database spring_boot_jdbc  
+```
+
+## Step 2
+Create a table
+
+```sql
+create table user(
+  id int UNSIGNED primary key not null auto_increment, 
+  name varchar(100), 
+  email varchar(100));
+```
+
+
