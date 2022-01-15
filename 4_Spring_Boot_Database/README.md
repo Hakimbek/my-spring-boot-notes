@@ -222,7 +222,7 @@ Set database url, name and password in application.properties file
 ### application.properties
 
 ```java
-spring.datasource.url=jdbc:postgresql://localhost:5432/spring_jpa_example
+spring.datasource.url=jdbc:postgresql:///localhost:5432/spring_jpa_example
 spring.datasource.password=5657
 spring.datasource.username=postgres
 spring.jpa.hibernate.ddl-auto=create
