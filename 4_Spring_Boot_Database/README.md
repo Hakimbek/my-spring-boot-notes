@@ -147,12 +147,87 @@ public class UserRecord {
     }
 }
 ```
-### Strep 3
+
+## Step 3
+Create a repository interface with the name **UserRepository** in the package **io.spring.boot.repository** and extends **CrudRepository**.
+
+### UserRepository.java
+
+```java
+public interface UserRepository extends CrudRepository<UserRecord, String> {
+
+}
+```
+
+## Step 4
+Create a Service class with the name **UserService** in the package **io.spring.boot.service** and do the following:
+
+- Mark the class as service by using the annotation **@Service**.
+- Autowired the UserRepository
+- Define a method **getAllUsers()** that returns a List of
+- Define another method name **addUser()** that saves the user record.
+
+### UserService.java
+
+```java
+@Service
+public class UserService {
+
+    @Autowired
+    UserRepository userRepository;
+
+    public List<UserRecord> getAllUsers() {
+        List<UserRecord> userRecords = new ArrayList<>();
+        userRepository.findAll().forEach(userRecords::add);
+        return userRecords;
+    }
+
+    public void addUser(UserRecord userRecord) {
+        userRepository.save(userRecord);
+    }
+
+}
+```
+
+### Strep 5
 Create a Controller class with the name **UserController** in the package **io.spring.boot.controller** and do the following:
 
 - Mark the class as a controller by using the annotation **@RestController**.
 - Autowired the class **UserService** by using the annotation **@Autowired**.
 - We have defined two mappings, one for getting all users and the other for add-user.
+
+```java
+@RestController
+public class UserController {
+
+    @Autowired
+    UserService userService;
+
+    @RequestMapping("/")
+    public List<UserRecord> getAllUser() {
+        return userService.getAllUsers();
+    }
+
+    @RequestMapping(value = "/add-user", method = RequestMethod.POST)
+    public void addUser(@RequestBody UserRecord userRecord) {
+        userService.addUser(userRecord);
+    }
+
+}
+```
+
+## Step 6
+Set database url, name and password in application.properties file
+
+### application.properties
+
+```java
+spring.datasource.url=jdbc:postgresql://localhost:5432/spring_jpa_example
+spring.datasource.password=5657
+spring.datasource.username=postgres
+spring.jpa.hibernate.ddl-auto=create
+```
+
 
 
 
