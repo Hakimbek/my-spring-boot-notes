@@ -11,7 +11,7 @@ The Maven project inherits the following features from spring-boot-starter-paren
 
 - The default Java compiler version
 - UTF-8 source encoding
-- It inherits a Dependency Section from the spring-boot-dependency-pom. It manages the version of common dependencies. It ignores the <version> tag for that dependencies.
+- It inherits a Dependency Section from the spring-boot-dependency-pom. It manages the version of common dependencies. It ignores the `<version>` tag for that dependencies.
 - Dependencies, inherited from the spring-boot-dependencies POM
 - Sensible resource filtering
 - Sensible plugin configuration
