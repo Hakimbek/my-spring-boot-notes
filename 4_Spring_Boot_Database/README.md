@@ -93,8 +93,66 @@ Spring Boot provides starter dependency **spring-boot-starter-data-jpa** to conn
   <version>latest-ver</version>    
 </dependency>  
 ```
+## Spring Boot JPA Example
 
+### Step 1
+Generate Spring Boot project and add dependencyies Spring: Web, Spring Data JPA and PostgreSQL Driver
 
+### Step 2 
+Create a class with the name **UserRecord** in the package **io.spring.boot.model** and do the following:
+
+- Define three variables **id, name** and **email**.
+- Generate Getters and Setter.
+- Define a default constructor.
+- Mark the class as an Entity by using the annotation **@Entity**.
+- Mark **Id** as the primary key by using the annotation **@Id**.
+
+### UserRecord.java
+
+```java
+@Entity
+public class UserRecord {
+    @Id
+    private Integer id;
+
+    private String name;
+
+    private String email;
+
+    public UserRecord() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+```
+### Strep 3
+Create a Controller class with the name **UserController** in the package **io.spring.boot.controller** and do the following:
+
+- Mark the class as a controller by using the annotation **@RestController**.
+- Autowired the class **UserService** by using the annotation **@Autowired**.
+- We have defined two mappings, one for getting all users and the other for add-user.
 
 
 
