@@ -76,3 +76,10 @@ If we want to connect to PostgreSQL database, we need to include the JDBC driver
 
 ```
 After that, define the datasoure properties in **application.properties** file.
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/database_name
+spring.datasource.password=****
+spring.datasource.username=name
+
+```
