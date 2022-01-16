@@ -611,3 +611,12 @@ spring.devtools.restart.additional-exclude=styles/**
 Spring Boot can tunnel JDWP (Java Debug Wire Protocol) over HTTP directly to the application. It can even work application deployment to Internet Cloud providers that only expose port 80 and 443.
 
 Remote Update and Restart: There is another trick that DevTools offers is: it supports remote application updates and restarts. It monitors local classpath for file changes and pushes them to a remote server, which is then restarted. We can also use this feature in combination with LiveReload.
+
+### Using a Trigger File
+Automatic restart sometimes can slow down development time due to frequent restarts. To remove this problem, we can use a trigger file. Spring Boot monitors trigger file and detects modifications in that file. It restarts the server and reloads all previous changes.
+
+We can implement the trigger file in our application by adding the property spring.devtools.restart.trigger-file. The file can be internal or external. For example:
+
+```properties
+spring.devtools.restart.trigger-file=c:/workspace-sts-3.9.9.RELEASE/restart-trigger.txt  
+```
