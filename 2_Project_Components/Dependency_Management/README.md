@@ -393,3 +393,221 @@ We can also use **spring-mvc** without using the embedded Tomcat server. If we w
         </exclusions>  
 </dependency>  
 ```
+
+## Spring Data JPA
+Spring Data is a high-level Spring Source project. Its purpose is to unify and easy access to the different kinds of persistence stores, both relational database systems, and NoSQL data stores.
+
+When we implement a new application, we should focus on the business logic instead of technical complexity and boilerplate code. That's why the Java Persistent API (JPA) specification and Spring Data JPA are extremely popular.
+
+Spring Data JPA adds a layer on the top of JPA. It means, Spring Data JPA uses all features defined by JPA specification, especially the entity, association mappings, and JPA's query capabilities. Spring Data JPA adds its own features such as the no-code implementation of the repository pattern and the creation of database queries from the method name.
+
+### Spring Data JPA
+Spring Data JPA handles most of the complexity of JDBC-based database access and ORM (Object Relational Mapping). It reduces the boilerplate code required by JPA. It makes the implementation of your persistence layer easier and faster.
+Spring Data JPA aims to improve the implementation of data access layers by reducing the effort to the amount that is needed.
+
+### Spring Data JPA Features
+- **No-code repository:** It is the most popular persistence-related pattern. It enables us to implement our business code on a higher abstraction level.
+- **Reduced boilerplate code:** It provides the default implementation for each method by its repository interfaces. It means that there is no longer need to implement read and write operations.
+- **Generated Queries:** Another feature of Spring Data JPA is the generation of database queries based on the method name. If the query is not too complex, we need to define a method on our repository interface with the name that starts with findBy. After defining the method, Spring parses the method name and creates a query for it. For example:
+
+```java
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {  
+        Employee findByName(String name);  
+}  
+```
+
+In the above example, we extend the CrudRepository that uses two generics: Employee and Long. The Employee is the entity that is to be managed, and Long is the data type of primary key
+
+Spring internally generates a JPQL (Java Persistence Query Language) query based on the method name. The query is derived from the method signature. It sets the bind parameter value, execute the query, and returns the result.
+
+There are some other features are as follows:
+
+- It can integrate custom repository code.
+- It is a powerful repository and custom object-mapping abstraction.
+- It supports transparent auditing.
+- It implements a domain base class that provides basic properties.
+- It supports several modules such as Spring Data JPA, Spring Data MongoDB, Spring Data REST, Spring Data Cassandra, etc.
+
+### Spring Data Repository
+Spring Data JPA provides three repositories are as follows:
+- **CrudRepository:** It offers standard create, read, update, and delete It contains method like findOne(), findAll(), save(), delete(), etc.
+- **PagingAndSortingRepository:** It extends the CrudRepository and adds the findAll methods. It allows us to sort and retrieve the data in a paginated way.
+- **JpaRepository:** It is a JPA specific repository It is defined in Spring Data Jpa. It extends the both repository CrudRepository and PagingAndSortingRepository. It adds the JPA-specific methods, like flush() to trigger a flush on the persistence context.
+
+```xml
+<dependency>  
+        <groupId>org.springframework.data</groupId>  
+        <artifactId>spring-data-jpa</artifactId>  
+        <version>latest-ver</version>  
+</dependency>  
+```
+
+### Spring Boot Starter Data JPA
+Spring Boot provides spring-boot-starter-data-jpa dependency to connect Spring application with relational database efficiently. The spring-boot-starter-data-jpa internally uses the spring-boot-jpa dependency (since Spring Boot version 1.5.3).
+
+```xml
+<dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-data-jpa</artifactId>  
+        <version>latest-ver</version>  
+</dependency>  
+```
+
+The databases are designed with tables/relations. Earlier approaches (JDBC) involved writing SQL queries.  In the JPA, we will store the data from objects into table and vice-versa. However, JPA evolved as a result of a different thought process.
+
+Before JPA, ORM was the term more commonly used to refer to these frameworks. It is the reason Hibernate is called the ORM framework.
+
+JPA allows us to map application classes to table in the database.
+
+- **Entity Manager:** Once we define the mapping, it handles all the interactions with the database.
+- **JPQL (Java Persistence Query Language):** It provides a way to write queries to execute searches against entities. It is different from the SQL queries. JPQL queries already understand the mapping that is defined between entities. We can add additional conditions if required.
+- **Criteria API:** It defines a Java-based API to execute searches against the database.
+
+### Hibernate vs. JPA
+Hibernate is the implementation of JPA. It is the most popular ORM framework, while JPA is an API that defines the specification. Hibernate understands the mapping that we add between objects and tables. It ensures that data is retrieved/ stored from the database based on the mapping. It also provides additional features on the top of the JPA.
+
+## Spring Boot Actuator
+Spring Boot Actuator is a sub-project of the Spring Boot Framework. It includes a number of additional features that help us to monitor and manage the Spring Boot application. It contains the actuator endpoints (the place where the resources live). We can use HTTP and JMX endpoints to manage and monitor the Spring Boot application. If we want to get production-ready features in an application, we should use the Spring Boot actuator.
+
+### Spring Boot Actuator Features
+- Endpoints
+- Metrics
+- Audit
+
+### Endpoint
+The actuator endpoints allows us to monitor and interact with the application. Spring Boot provides a number of built-in endpoints. We can also create our own endpoint. We can enable and disable each endpoint individually. Most of the application choose HTTP, where the Id of the endpoint, along with the prefix of /actuator, is mapped to a URL.
+
+For example, the /health endpoint provides the basic health information of an application. The actuator, by default, mapped it to /actuator/health.  
+
+### Metrics
+Spring Boot Actuator provides dimensional metrics by integrating with the micrometer. The micrometer is integrated into Spring Boot. It is the instrumentation library powering the delivery of application metrics from Spring. It provides vendor-neutral interfaces for timers, gauges, counters, distribution summaries, and long task timers with a dimensional data model.
+
+### Audit
+Spring Boot provides a flexible audit framework that publishes events to an AuditEventRepository. It automatically publishes the authentication events if spring-security is in execution.
+
+### Enabling Spring Boot Actuator
+We can enable actuator by injecting the dependency spring-boot-starter-actuator in the pom.xml file.
+
+```xml
+<dependency>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-actuator</artifactId>  
+    <version>latest-ver</version>  
+</dependency>  
+```
+
+### Spring Boot actuator properties
+Spring Boot enables security for all actuator endpoints. It uses form-based authentication that provides user Id as the user and a randomly generated password. We can also access actuator-restricted endpoints by customizing basicauth security to the endpoints. We need to override this configuration by management.security.roles property. For example:
+
+```properties
+management.security.enabled=true  
+management.security.roles=ADMIN  
+security.basic.enabled=true  
+security.user.name=admin  
+security.user.passowrd=admin  
+```
+
+## Spring Boot Starter Test
+The spring-boot-starter-test is the primary dependency for the test. It contains the majority of elements required for our tests.
+
+There are several different types of tests that we can write to help test and automate the health of an application. Before starting any testing, we need to integrate the testing framework.
+
+With Spring Boot, we need to add starter to our project, for testing we only need to add the spring-boot-starter-test dependency.
+
+```xml
+<dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-test</artifactId>  
+        <version>latest-ver</version>  
+        <scope>test</scope>  
+</dependency>  
+```
+
+It pulls all the dependencies related to test. After adding it, we can build up a simple unit test. We can either create the Spring Boot project through IDE or generate it using Spring Initializr.
+
+> Note: If you are adding test dependency manually, add it to the bottom of the pom.xml file.
+
+In the above dependency, one thing to be noticed that it includes the scope of test <scope>test</scope>. It means when the application is bundled and packaged for deployment, any dependency that is declared with the test scopes is ignored. The test scope dependencies are only available when running in the development and Maven test modes.
+
+When we create a simple Spring Boot application, by default, it contains the test dependency in the pom.xml file and ApplicationNameTest.java file under in the folder src/test/java.
+
+## Spring Boot DevTools
+Spring Boot 1.3 provides another module called Spring Boot DevTools. DevTools stands for Developer Tool. The aim of the module is to try and improve the development time while working with the Spring Boot application. Spring Boot DevTools pick up the changes and restart the application.
+
+We can implement the DevTools in our project by adding the following dependency in the pom.xml file.
+
+```xml
+<dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-devtools</artifactId>  
+        <scope>runtime<scope >  
+</dependency>  
+```
+
+### Spring Boot DevTools Features
+
+### Property Defaults
+Spring Boot provides templating technology Thymeleaf that contains the property spring.thymeleaf.cache. It disables the caching and allows us to update pages without the need of restarting the application. But setting up these properties during the development always creates some problems.
+
+When we use the spring-boot-devtools module, we are not required to set properties. During the development caching for Thymeleaf, Freemarker, Groovy Templates are automatically disabled.
+
+> Note: If we do not want to apply property defaults on an application, we can set configprop:spring.devtools.add-properties to false in the application.properties file.
+
+### Automatic Restart
+Auto-restart means reloading of Java classes and configure it at the server-side. After the server-side changes, it deployed dynamically, server restarts happen, and load the modified code. It is mostly used in microservice-based applications. Spring Boot uses two types of ClassLoaders:
+
+- The classes that do not change (third-Jars) are loaded in the base ClassLoader.
+- The classes that we are actively developing are loaded in the restart ClassLoader.
+- 
+When the application restarts, the restart ClassLoader is thrown away, and a new one is populated. Therefore, the base ClassLoader is always available and populated.
+
+### Remember:
+- The DevTools always monitors the classpath resources.
+- There is only a way to trigger a restart is to update the classpath.
+- DevTools required a separate application classloader to work properly. By default, Maven fork the application process.
+- Auto-restart works well with LiveReload.
+- DevTools depends on the application context's shutdown hook to close it during the restart.
+
+### LiveReload
+The Spring Boot DevTools module includes an embedded server called LiveReload. It allows the application to automictically trigger a browser refresh whenever we make changes in the resources. It is also known as auto-refresh.
+
+> Note: We can disable the LiveReload by setting the property spring.devtools.livereload.enabled to false.
+
+It provides browser extensions for Chrome, Firefox, and Safari. By default, LiveReload is enabled. The LiveReload works on the following path:
+
+- /META-INF/maven
+- /META-INF/resources
+- /resources
+- /static
+- /public
+- /templates
+- 
+We can also disable auto-reload in browser by excluding the above paths. For example:
+
+We can disable the auto-restart of a server by using the property spring.devtools.restart.enabled to false.
+
+```properties
+spring.devtools.restart.exclude=public/**, static/**, templates/**  
+```
+
+We can see the other additional path by using the property spring.devtools.restart.additional-paths. For example:
+
+```properties
+spring.devtools.restart.additional-paths=/path-to-folder  
+```
+
+If we want to exclude additional path and want to keep defaults then use the property spring.devtools.restart.additional-exclude. For example:
+
+```properties
+spring.devtools.restart.additional-exclude=styles/**  
+```
+
+### Remember
+- We can run one LiveReload server at a time.
+- Before starting the application, ensure that no other LiveReload server is running.
+- If we start multiple applications from IDE, it supports only the first LiveReload.
+
+### Remote Debug Tunneling
+Spring Boot can tunnel JDWP (Java Debug Wire Protocol) over HTTP directly to the application. It can even work application deployment to Internet Cloud providers that only expose port 80 and 443.
+
+Remote Update and Restart: There is another trick that DevTools offers is: it supports remote application updates and restarts. It monitors local classpath for file changes and pushes them to a remote server, which is then restarted. We can also use this feature in combination with LiveReload.
