@@ -48,7 +48,7 @@ It provides browser extensions for Chrome, Firefox, and Safari. By default, Live
 - /static
 - /public
 - /templates
-- 
+
 We can also disable auto-reload in browser by excluding the above paths. For example:
 
 We can disable the auto-restart of a server by using the property spring.devtools.restart.enabled to false.
