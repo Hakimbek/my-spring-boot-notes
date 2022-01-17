@@ -51,10 +51,10 @@ By providing or avoiding the above points, Spring Boot Framework reduces Develop
 # Spring Boot Features
 
 ### Web Development
-- It is a well-suited Spring module for web application development. We can easily create a self-contained HTTP application that uses embedded servers like Tomcat, Jetty or Undertow. We can use the **spring-boot-starter-web** module to start and run the application quickly.
+It is a well-suited Spring module for web application development. We can easily create a self-contained HTTP application that uses embedded servers like Tomcat, Jetty or Undertow. We can use the **spring-boot-starter-web** module to start and run the application quickly.
 
 ### SpringApplication
-- The SpringApplication is a class that provides a convenient way to bootstrap a Spring application. It can be started from the **main** method. We can call the application just by calling a static **run()** method.
+The SpringApplication is a class that provides a convenient way to bootstrap a Spring application. It can be started from the **main** method. We can call the application just by calling a static **run()** method.
 
 ```java
 public static void main(String[] args) {    
@@ -63,29 +63,29 @@ public static void main(String[] args) {
 ```
 
 ### Application Events and Listeners
-- Spring Boot uses events to handle the variety of tasks. It allows us to create factories file that is used to add listeners. We can refer it to using the **ApplicationListener** key.
+Spring Boot uses events to handle the variety of tasks. It allows us to create factories file that is used to add listeners. We can refer it to using the **ApplicationListener** key.
 Always create factories file in **META-INF** folder like **META-INF/spring.factories**.
 
 ### Admin Support
-- Spring Boot provides the facility to enable admin-related features for the application. It is used to access and manage applications remotely. We can enable it in the Spring Boot application by using **spring.application.admin.enabled** property.
+Spring Boot provides the facility to enable admin-related features for the application. It is used to access and manage applications remotely. We can enable it in the Spring Boot application by using **spring.application.admin.enabled** property.
 
 ### Externalized Configuration
-- Spring Boot allows us to externalize our configuration so that we can work with the same application in different environments. The application uses **YAML** files to externalize configuration.
+Spring Boot allows us to externalize our configuration so that we can work with the same application in different environments. The application uses **YAML** files to externalize configuration.
 
 ### Properties Files
-- Spring Boot provides a rich set of Application Properties. So, we can use that in the properties file of our project. The properties file is used to set properties like **server-port=8082** and many others. It helps to organize application properties.
+Spring Boot provides a rich set of Application Properties. So, we can use that in the properties file of our project. The properties file is used to set properties like **server-port=8082** and many others. It helps to organize application properties.
 
 ### YAML Support
-- It provides a convenient way of specifying the hierarchical configuration. It is a superset of **JSON**. The **SpringApplication** class automatically supports **YAML**. It is an alternative of properties file.
+It provides a convenient way of specifying the hierarchical configuration. It is a superset of **JSON**. The **SpringApplication** class automatically supports **YAML**. It is an alternative of properties file.
 
 ### Type-safe Configuration
-- The strong type-safe configuration is provided to govern and validate the configuration of the application. Application configuration is always a crucial task which should be type-safe. We can also use annotation provided by this library.
+The strong type-safe configuration is provided to govern and validate the configuration of the application. Application configuration is always a crucial task which should be type-safe. We can also use annotation provided by this library.
 
 ### Logging
-- Spring Boot uses Common logging for all internal logging. Logging dependencies are managed by default. We should not change logging dependencies if no customization is needed.
+Spring Boot uses Common logging for all internal logging. Logging dependencies are managed by default. We should not change logging dependencies if no customization is needed.
 
 ### Security
-- Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. A rich set of Endpoints is available to develop a secure Spring Boot application.
+Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. A rich set of Endpoints is available to develop a secure Spring Boot application.
 
 # Spring vs. Spring Boot
 ### Spring 
