@@ -3,6 +3,7 @@
   - ### Project Components
     - [Spring Boot Annotations](2_Project_Components/Spring_Boot_Annotation/README.md)
     - [Application Properties](2_Project_Components/Application_Properties/README.md)
+    - [Spring Boot Starters](2_Project_Components/Spring_Boot_Starter/README.md)
     - [Dependency Management](2_Project_Components/Dependency_Management/README.md)
   - ### [Spring Boot AOP](3_Spring_Boot_AOP/README.md)
   - ### Spring Boot Database
