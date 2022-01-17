@@ -81,16 +81,12 @@ The **spring-boot-starter-parent** is a project starter. It provides default con
 
 Parent Poms allow us to manage the following things for multiple child projects and modules:
 
-### Configuration
-It allows us to maintain consistency of Java Version and other related properties.
-
-### Dependency Management
-It controls the versions of dependencies to avoid conflict.
-
-### Source encoding
-### Default Java Version
-### Resource filtering
-### It also controls the default plugin configuration.
+- Configuration: It allows us to maintain consistency of Java Version and other related properties.
+- Dependency Management: It controls the versions of dependencies to avoid conflict.
+- Source encoding
+- Default Java Version
+- Resource filtering
+- It also controls the default plugin configuration.
 
 # Spring Boot Starter Web
 There are two important features of **spring-boot-starter-web**:
