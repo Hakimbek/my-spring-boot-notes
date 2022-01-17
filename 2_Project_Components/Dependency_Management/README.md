@@ -174,7 +174,7 @@ The Spring Boot Framework provides the following application starters under the 
 | spring-boot-starter-log4j2 | It is used for Log4j2 for logging. An alternative to spring-boot-starter-logging. |
 
 # Spring Boot Starter Web
-There are two important features of spring-boot-starter-web:
+There are two important features of **spring-boot-starter-web**:
 
 It is compatible for web development
 - Auto configuration
