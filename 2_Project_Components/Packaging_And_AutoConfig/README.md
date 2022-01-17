@@ -55,3 +55,21 @@ Spring-based application requires a lot of configuration. When we use Spring MVC
     <url-pattern>/</url-pattern>  
 </servlet-mapping>  
 ```
+
+Similarly, when we use Hibernate/ JPA, we need to configure datasource, a transaction manager, an entity manager factory among a host of other things.
+
+### Configuring datasource
+
+```xml
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">  
+    <property name="driverClass" value="${db.driver}" />  
+    <property name="jdbcUrl" value="${db.url}" />  
+    <property name="user" value="${db.username}" />  
+    <property name="password" value="${db.password}" />  
+</bean>
+
+<jdbc:initialize-database data-source="dataSource">  
+    <jdbc:script location="classpath:config/schema.sql" />  
+    <jdbc:script location="classpath:config/data.sql" />  
+</jdbc:initialize-database>  
+```
