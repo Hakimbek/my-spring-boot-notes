@@ -1,104 +1,57 @@
-# Spring Boot Dependency Management
-Spring Boot manages dependencies and configuration automatically. Each release of Spring Boot provides a list of dependencies that it supports. The list of dependencies is available as a part of the Bills of Materials (spring-boot-dependencies) that can be used with Maven. So, we need not to specify the version of the dependencies in our configuration. Spring Boot manages itself. Spring Boot upgrades all dependencies automatically in a consistent way when we update the Spring Boot version.
+# Spring Boot Packaging
+In the J2EE application, modules are packed as **JAR, WAR and EAR**. It is the compressed file formats that is used in the J2EE. J2EE defines three types of archives:
 
-## Advantages of Dependency Management
-- It provides the centralization of dependency information by specifying the Spring Boot version in one place. It helps when we switch from one version to another.
-- It avoids mismatch of different versions of Spring Boot libraries.
-- We only need to write a library name with specifying the version. It is helpful in multi-module projects.
+### WAR
+WAR stands for Web Archive. WAR file represents the web application. Web module contains servlet classes, JSP files, HTML files, JavaScripts, etc. are packaged as a JAR file with .war extension. It contains a special directory called WEB-INF.
 
-## Maven Dependency Management System
-The Maven project inherits the following features from **spring-boot-starter-parent**:
+WAR is a module that loads into a web container of the Java Application Server. The Java Application Server has two containers: Web Container and EJB Container.
 
-- The default Java compiler version
-- UTF-8 source encoding
-- It inherits a Dependency Section from the **spring-boot-dependency-pom**. It manages the version of common dependencies. It ignores the `<version>` tag for that dependencies.
-- Dependencies, inherited from the **spring-boot-dependencies** POM
-- Sensible resource filtering
-- Sensible plugin configuration
+The Web Container hosts the web applications based on Servlet API and JSP. The web container requires the web module to be packaged as a WAR file. It is a WAR file special JAR file that contains a web.xmlv file in the WEB-INF folder.
 
-### Inheriting Starter Parent
-The following **spring-boot-starter-parent** inherits automatically when we configure the project.
+An EJB Container hosts Enterprise Java beans based on EJB API. It requires EJB modules to be packaged as a JAR file. It contains an ejb-jar.xml file in the META-INF folder.
 
-```xml
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.2</version>
-    <relativePath/> <!-- lookup parent from repository -->
-</parent>
-```
+The advantage of the WAR file is that it can be deployed easily on the client machine in a Web server environment. To execute a WAR file, a Web server or Web container is required. For example, Tomcat, Weblogic, and Websphere.
 
-### Note
-In the above dependency, we have specified only the Spring Boot version. If we want to add additional starters, simply remove the `<version>` tag. Similarly, we can also override the individual dependency by overriding a property in our project.
-  
-For example, if we want to add another dependency with the same artifact that we have injected already, inject that dependency again inside the `<properties>` tag to override the previous one.
-  
-### Changing the Java version
-We can also change the Java version by using the `<java.version>` tag.
+### JAR
+JAR stands for Java Archive. An EJB (Enterprise Java Beans) module that contains bean files (class files), a manifest, and EJB deployment descriptor (XML file) are packaged as JAR files with the extension .jar. It is used by software developers to distribute Java classes and various metadata.
 
-```xml
-<properties>
-    <java.version>11</java.version>
-</properties>
-```
+In other words, A file that encapsulates one or more Java classes, a manifest, and descriptor is called JAR file. It is the lowest level of the archive. It is used in J2EE for packaging EJB and client-side Java Applications. It makes the deployment easy.
 
-### Adding Spring Boot Maven Plugin
-We can also add Maven plugin in our **pom.xml** file. It wraps the project into an executable jar file.
+### EAR
+EAR stands for Enterprise Archive. EAR file represents the enterprise application. The above two files are packaged as a JAR file with the .ear extension. It is deployed into the Application Server. It can contain multiple EJB modules (JAR) and Web modules (WAR). It is a special JAR that contains an application.xml file in the META-INF folder.
+
+
+# Spring Boot Auto-configuration
+Spring Boot auto-configuration automatically configures the Spring application based on the jar dependencies that we have added.
+
+For example, if the H2 database Jar is present in the classpath and we have not configured any beans related to the database manually, the Spring Boot's auto-configuration feature automatically configures it in the project.
+
+We can enable the auto-configuration feature by using the annotation **@EnableAutoConfiguration**. But this annotation does not use because it is wrapped inside the **@SpringBootApplication** annotation. The annotation **@SpringBootApplication** is the combination of three annotations: **@ComponentScan, @EnableAutoConfiguration and **@Configuration**. However, we use **@SpringBootApplication** annotation instead of using **@EnableAutoConfiguration**.
+
+### @SpringBootApplication=@ComponentScan+@EnableAutoConfiguration+@Configuration
+
+When we add the spring-boot-starter-web dependency in the project, Spring Boot auto-configuration looks for the Spring MVC is on the classpath. It auto-configures dispatcherServlet, a default error page, and web jars.
+
+Similarly, when we add the spring-boot-starter-data-jpa dependency, we see that Spring Boot Auto-configuration, auto-configures a datasource and an Entity Manager.
+
+## Need of auto-configuration
+Spring-based application requires a lot of configuration. When we use Spring MVC, we need to configure dispatcher servlet, view resolver, web jars among other things. The following code shows typical configuration of a dispatcher servlet in a web application:
 
 ```xml
-<build>
-   <plugins>
-       <plugin>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-maven-plugin</artifactId>
-       </plugin>
-   </plugins>
-</build>
-```
+<servlet>  
+    <servlet-name>dispatcher</servlet-name>  
+    <servlet-class>  
+        org.springframework.web.servlet.DispatcherServlet  
+    </servlet-class>  
+    <init-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>/WEB-INF/todo-servlet.xml</param-value>  
+    </init-param>  
+    <load-on-startup>1</load-on-startup>  
+</servlet>  
 
-### Spring Boot without Parent POM
-If we don't want to use **spring-boot-starter-parent** dependency, but still want to take the advantage of the dependency management, we can use `<scope>` tag, as follows:
-
-### Note
-It does not maintain the plugin management.
-
-```xml
-<dependencyManagement>  
-    <dependencies>  
-        <dependency><!-- Import dependency management from Spring Boot -->  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-dependencies</artifactId>  
-            <version>2.2.2.RELEASE</version>  
-            <type>pom</type>  
-            <scope>import</scope>  
-        </dependency>  
-    </dependencies>  
-</dependencyManagement>  
-```
-
-The above dependency does not allow overriding. To achieve the overriding, we need to add an entry inside the `<dependencyManagement>` tag of our project before the spring-boot-dependencies entry.
-
-For example, to upgrade another **spring-data-releasetrain**, add the following dependency in the **pom.xml** file.
-
-```xml
-<dependencyManagement>  
-    <dependencies>  
-        <!--Override Spring Data release train-->  
-        <dependency>  
-            <groupId>org.springframework.data</groupId>  
-            <artifactId>spring-data-releasetrain</artifactId>  
-            <version>Fowler-SR2</version>  
-            <type>pom</type>  
-            <scope>import</scope>  
-        </dependency>  
-    
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-dependencies</artifactId>  
-            <version>2.2.2.RELEASE</version>  
-            <type>pom</type>  
-            <scope>import</scope>  
-        </dependency>  
-    </dependencies>  
-</dependencyManagement> 
+<servlet-mapping>  
+    <servlet-name>dispatcher</servlet-name>  
+    <url-pattern>/</url-pattern>  
+</servlet-mapping>  
 ```
