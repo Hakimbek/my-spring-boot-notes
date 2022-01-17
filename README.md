@@ -9,6 +9,7 @@
       - [Starter Data JPA](2_Project_Components/Spring_Boot_Starter/Data/README.md)
       - [Starter Actuator](2_Project_Components/Spring_Boot_Starter/Actuator/README.md)
       - [Starter Test](2_Project_Components/Spring_Boot_Starter/Test/README.md)
+      - [Starter DevTools](2_Project_Components/Spring_Boot_Starter/DevTools/README.md)
     - ### [Dependency Management](2_Project_Components/Dependency_Management/README.md)
   - ## [Spring Boot AOP](3_Spring_Boot_AOP/README.md)
   - ## Spring Boot Database
