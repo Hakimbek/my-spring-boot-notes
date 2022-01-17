@@ -64,15 +64,15 @@ It does not maintain the plugin management.
 
 ```xml
 <dependencyManagement>  
-  <dependencies>  
-    <dependency><!-- Import dependency management from Spring Boot -->  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-dependencies</artifactId>  
-      <version>2.2.2.RELEASE</version>  
-      <type>pom</type>  
-      <scope>import</scope>  
-    </dependency>  
-  </dependencies>  
+    <dependencies>  
+        <dependency><!-- Import dependency management from Spring Boot -->  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-dependencies</artifactId>  
+            <version>2.2.2.RELEASE</version>  
+            <type>pom</type>  
+            <scope>import</scope>  
+        </dependency>  
+    </dependencies>  
 </dependencyManagement>  
 ```
 
