@@ -20,9 +20,9 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 }  
 ```
 
-In the above example, we extend the CrudRepository that uses two generics: Employee and Long. The Employee is the entity that is to be managed, and Long is the data type of primary key
+In the above example, we extend the **CrudRepository** that uses two generics: **Employee** and **Long**. The Employee is the entity that is to be managed, and Long is the data type of primary key
 
-Spring internally generates a JPQL (Java Persistence Query Language) query based on the method name. The query is derived from the method signature. It sets the bind parameter value, execute the query, and returns the result.
+Spring internally generates a **JPQL (Java Persistence Query Language)** query based on the method name. The query is derived from the method signature. It sets the bind parameter value, execute the query and returns the result.
 
 There are some other features are as follows:
 
