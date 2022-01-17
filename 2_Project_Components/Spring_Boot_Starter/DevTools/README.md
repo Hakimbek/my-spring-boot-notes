@@ -25,7 +25,7 @@ Auto-restart means reloading of Java classes and configure it at the server-side
 
 - The classes that do not change (third-Jars) are loaded in the base ClassLoader.
 - The classes that we are actively developing are loaded in the restart ClassLoader.
-- 
+
 When the application restarts, the restart ClassLoader is thrown away, and a new one is populated. Therefore, the base ClassLoader is always available and populated.
 
 ### Remember:
