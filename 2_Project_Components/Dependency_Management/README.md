@@ -21,11 +21,11 @@ The following **spring-boot-starter-parent** inherits automatically when we conf
 
 ```xml
 <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.2</version>
+    <relativePath/> <!-- lookup parent from repository -->
+</parent>
 ```
 
 > Note: In the above dependency, we have specified only the Spring Boot version. If we want to add additional starters, simply remove the `<version>` tag. Similarly, we can also override the individual dependency by overriding a property in our project.
