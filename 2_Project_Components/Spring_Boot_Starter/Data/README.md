@@ -6,7 +6,7 @@ When we implement a new application, we should focus on the business logic inste
 Spring Data JPA adds a layer on the top of JPA. It means, Spring Data JPA uses all features defined by JPA specification, especially the entity, association mappings, and JPA's query capabilities. Spring Data JPA adds its own features such as the no-code implementation of the repository pattern and the creation of database queries from the method name.
 
 ### Spring Data JPA
-Spring Data JPA handles most of the complexity of JDBC-based database access and ORM (Object Relational Mapping). It reduces the boilerplate code required by JPA. It makes the implementation of your persistence layer easier and faster.
+Spring Data JPA handles most of the complexity of JDBC-based database access and **ORM (Object Relational Mapping)**. It reduces the boilerplate code required by JPA. It makes the implementation of your persistence layer easier and faster.
 Spring Data JPA aims to improve the implementation of data access layers by reducing the effort to the amount that is needed.
 
 ### Spring Data JPA Features
