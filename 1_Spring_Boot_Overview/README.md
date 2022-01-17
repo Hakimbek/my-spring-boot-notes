@@ -143,7 +143,6 @@ In the database layer, CRUD (create, retrieve, update, delete) operations are pe
 
 | Presenattion Layer | Authentication, JSON Translation |
 | ------------------ | -------------------------------- |
-
 | Business Layer | Bisness Logic, Validation, Authorisation |
 | ------------------ | ------------------------------------ |
 
