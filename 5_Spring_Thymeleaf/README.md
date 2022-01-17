@@ -83,7 +83,7 @@ We can implement Thymeleaf template engine by adding spring-boot-starter-thymele
 
 ```xml
 <dependency>  
-<groupId>org.springframework.boot</groupId>  
-<artifactId>spring-boot-starter-thymeleaf</artifactId>  
+  <groupId>org.springframework.boot</groupId>  
+  <artifactId>spring-boot-starter-thymeleaf</artifactId>  
 </dependency>  
 ```
