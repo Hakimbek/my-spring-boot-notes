@@ -11,7 +11,7 @@ We can implement the DevTools in our project by adding the following dependency 
 </dependency>  
 ```
 
-### Spring Boot DevTools Features
+## Spring Boot DevTools Features
 
 ### Property Defaults
 Spring Boot provides templating technology Thymeleaf that contains the property spring.thymeleaf.cache. It disables the caching and allows us to update pages without the need of restarting the application. But setting up these properties during the development always creates some problems.
