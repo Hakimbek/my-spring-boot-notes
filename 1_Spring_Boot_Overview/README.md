@@ -48,7 +48,7 @@ The main goal of Spring Boot is to reduce development, unit test and integration
 
 By providing or avoiding the above points, Spring Boot Framework reduces Development time, Developer Effort, and increases productivity.
 
-## Spring Boot Features
+# Spring Boot Features
 
 ### Web Development
 - It is a well-suited Spring module for web application development. We can easily create a self-contained HTTP application that uses embedded servers like Tomcat, Jetty or Undertow. We can use the **spring-boot-starter-web** module to start and run the application quickly.
@@ -87,38 +87,40 @@ Always create factories file in **META-INF** folder like **META-INF/spring.facto
 ### Security
 - Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. A rich set of Endpoints is available to develop a secure Spring Boot application.
 
-## Spring vs. Spring Boot
+# Spring vs. Spring Boot
 ### Spring 
-Spring Framework is the most popular application development framework of Java. The main feature of the Spring Framework is dependency Injection or Inversion of Control (IoC). With the help of Spring Framework, we can develop a loosely coupled application. It is better to use if application type or characteristics are purely defined.
+Spring Framework is the most popular application development framework of Java. The main feature of the Spring Framework is **dependency Injection** or **Inversion of Control (IoC)**. With the help of Spring Framework, we can develop a loosely coupled application. It is better to use if application type or characteristics are purely defined.
 
-Spring Boot: Spring Boot is a module of Spring Framework. It allows us to build a stand-alone application with minimal or zero configurations. It is better to use if we want to develop a simple Spring-based application or RESTful services.
+### Spring Boot
+Spring Boot is a module of Spring Framework. It allows us to build a stand-alone application with minimal or zero configurations. It is better to use if we want to develop a simple Spring-based application or **RESTful** services.
 
-The primary comparison between Spring and Spring Boot are discussed below:
-
-Spring	Spring Boot
-Spring Framework is a widely used Java EE framework for building applications.	Spring Boot Framework is widely used to develop REST APIs.
-It aims to simplify Java EE development that makes developers more productive.	It aims to shorten the code length and provide the easiest way to develop Web Applications.
-The primary feature of the Spring Framework is dependency injection.	The primary feature of Spring Boot is Autoconfiguration. It automatically configures the classes based on the requirement.
-It helps to make things simpler by allowing us to develop loosely coupled applications.	It helps to create a stand-alone application with less configuration.
-The developer writes a lot of code (boilerplate code) to do the minimal task.	It reduces boilerplate code.
-To test the Spring project, we need to set up the sever explicitly.	Spring Boot offers embedded server such as Jetty and Tomcat, etc.
-It does not provide support for an in-memory database.	It offers several plugins for working with an embedded and in-memory database such as H2.
-Developers manually define dependencies for the Spring project in pom.xml.	Spring Boot comes with the concept of starter in pom.xml file that internally takes care of downloading the dependencies JARs based on Spring Boot Requirement.
-Spring Boot vs. Spring MVC
-Spring Boot: Spring Boot makes it easy to quickly bootstrap and start developing a Spring-based application. It avoids a lot of boilerplate code. It hides a lot of complexity behind the scene so that the developer can quickly get started and develop Spring-based applications easily.
+| Spring | Spring Boot |
+| ------ | ----------- |
+| Spring Framework is a widely used Java EE framework for building applications. | Spring Boot Framework is widely used to develop REST APIs. |
+| It aims to simplify Java EE development that makes developers more productive. | It aims to shorten the code length and provide the easiest way to develop Web Applications. |
+| The primary feature of the Spring Framework is dependency injection. | The primary feature of Spring Boot is **Autoconfiguration.** It automatically configures the classes based on the requirement. |
+| It helps to make things simpler by allowing us to develop loosely coupled applications. |	It helps to create a stand-alone application with less configuration. |
+| The developer writes a lot of code (boilerplate code) to do the minimal task. |	It reduces boilerplate code. |
+| To test the Spring project, we need to set up the sever explicitly. |	Spring Boot offers embedded server such as **Jetty** and **Tomcat, etc**. |
+| It does not provide support for an in-memory database. | It offers several plugins for working with an embedded and in-memory database such as **H2**. |
+| Developers manually define dependencies for the Spring project in **pom.xml**. |Spring Boot comes with the concept of starter in **pom.xml** file that internally takes care of downloading the dependencies JARs based on Spring Boot Requirement. |
 
 
-Spring MVC: Spring MVC is a Web MVC Framework for building web applications. It contains a lot of configuration files for various capabilities. It is an HTTP oriented web application development framework.
+# Spring Boot vs. Spring MVC
+### Spring Boot
+Spring Boot makes it easy to quickly bootstrap and start developing a Spring-based application. It avoids a lot of boilerplate code. It hides a lot of complexity behind the scene so that the developer can quickly get started and develop Spring-based applications easily.
 
-Spring Boot and Spring MVC exist for different purposes. The primary comparison between Spring Boot and Spring MVC are discussed below:
+### Spring MVC
+Spring MVC is a Web MVC Framework for building web applications. It contains a lot of configuration files for various capabilities. It is an HTTP oriented web application development framework.
 
-Spring Boot	Spring MVC
-Spring Boot is a module of Spring for packaging the Spring-based application with sensible defaults.	Spring MVC is a model view controller-based web framework under the Spring framework.
-It provides default configurations to build Spring-powered framework.	It provides ready to use features for building a web application.
-There is no need to build configuration manually.	It requires build configuration manually.
-There is no requirement for a deployment descriptor.	A Deployment descriptor is required.
-It avoids boilerplate code and wraps dependencies together in a single unit.	It specifies each dependency separately.
-It reduces development time and increases productivity.	It takes more time to achieve the same.
+| Spring Boot |	Spring MVC |
+| ----------- | ---------- |
+| Spring Boot is a module of Spring for packaging the Spring-based application with sensible defaults. | Spring MVC is a model view controller-based web framework under the Spring framework. |
+| It provides default configurations to build Spring-powered framework. |	It provides ready to use features for building a web application. |
+| There is no need to build configuration manually. |	It requires build configuration manually. |
+| There is no requirement for a deployment descriptor. | A Deployment descriptor is required. |
+| It avoids boilerplate code and wraps dependencies together in a single unit. | It specifies each dependency separately. |
+| It reduces development time and increases productivity. |	It takes more time to achieve the same. |
 
 Spring Boot Architecture
 Spring Boot is a module of the Spring Framework. It is used to create stand-alone, production-grade Spring Based Applications with minimum efforts. It is developed on top of the core Spring Framework.
