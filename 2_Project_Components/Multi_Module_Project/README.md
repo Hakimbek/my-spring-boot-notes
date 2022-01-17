@@ -22,4 +22,4 @@ For example, we are creating an **EAR (Enterprise ARchive)**, **WAR (Web ARchive
 
 The EAR file contains one or many WAR files. Each WAR file contains the service project that has common code to all WAR files and packaging type in the JAR.
 
-![Multi Module Photo](2_Project_Components/Multi_Module_Project/image/ear.png)
+![Multi Module Photo](2_Project_Components/Multi_Module_Project/image/spring-boot-multi-module-project.png)
