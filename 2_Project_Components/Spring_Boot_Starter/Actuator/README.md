@@ -50,7 +50,7 @@ The actuator endpoints allow us to monitor and interact with our Spring Boot app
 | shutdown | It is used to allow the application to be gracefully shutdown. | True |
 | trace | It is used to display trace information. | True |
 
-### Spring Boot actuator properties
+## Spring Boot actuator properties
 Spring Boot enables security for all actuator endpoints. It uses form-based authentication that provides user Id as the user and a randomly generated password. We can also access actuator-restricted endpoints by customizing basicauth security to the endpoints. We need to override this configuration by management.security.roles property. For example:
 
 ```properties
