@@ -12,7 +12,7 @@ The actuator endpoints allows us to monitor and interact with the application. S
 For example, the /health endpoint provides the basic health information of an application. The actuator, by default, mapped it to /actuator/health.  
 
 ### Metrics
-Spring Boot Actuator provides dimensional metrics by integrating with the micrometer. The micrometer is integrated into Spring Boot. It is the instrumentation library powering the delivery of application metrics from Spring. It provides vendor-neutral interfaces for timers, gauges, counters, distribution summaries, and long task timers with a dimensional data model.
+Spring Boot Actuator provides dimensional metrics by integrating with the micrometer. The micrometer is integrated into Spring Boot. It is the instrumentation library powering the delivery of application metrics from Spring. It provides vendor-neutral interfaces for timers, gauges, counters, distribution summaries and long task timers with a dimensional data model.
 
 ### Audit
 Spring Boot provides a flexible audit framework that publishes events to an AuditEventRepository. It automatically publishes the authentication events if spring-security is in execution.
