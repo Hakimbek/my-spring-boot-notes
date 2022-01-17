@@ -6,8 +6,8 @@
     - ### [Spring Boot Starters](2_Project_Components/Spring_Boot_Starter/README.md)
       - [Parent Starter](2_Project_Components/Spring_Boot_Starter/Parent/README.md)
       - [Web Starter](2_Project_Components/Spring_Boot_Starter/Web/README.md)
-      - [Data JPA Starter](2_Project_Components/Spring_Boot_Starter/README.md)
-      - [Parent Starter](2_Project_Components/Spring_Boot_Starter/README.md)
+      - [Data JPA Starter](2_Project_Components/Spring_Boot_Starter/Data/README.md)
+      - [Test Starter](2_Project_Components/Spring_Boot_Starter/Test/README.md)
     - ### [Dependency Management](2_Project_Components/Dependency_Management/README.md)
   - ## [Spring Boot AOP](3_Spring_Boot_AOP/README.md)
   - ## Spring Boot Database
