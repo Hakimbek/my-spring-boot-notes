@@ -131,19 +131,20 @@ Before understanding the Spring Boot Architecture, we must know the different la
 
 ### Presentation Layer
 The presentation layer handles the HTTP requests, translates the JSON parameter to object and authenticates the request and transfer it to the business layer. In short, it consists of views i.e., frontend part.
+- Authentication
+- JSON Translation 
 
 ### Business Layer
 The business layer handles all the business logic. It consists of service classes and uses services provided by data access layers. It also performs authorization and validation.
+- Bisness Logic
+- Validation
+- Authorisation
 
 ### Persistence Layer
 The persistence layer contains all the storage logic and translates business objects from and to database rows.
+- Storage Logic
 
 ### Database Layer
 In the database layer, CRUD (create, retrieve, update, delete) operations are performed.
-
-| Presenattion Layer | Authentication, JSON Translation         |
-| ------------------ | ---------------------------------------- |
-
-| Business Layer     | Bisness Logic, Validation, Authorisation |
-| ------------------ | ---------------------------------------- |
+- Actual Dtabase
 
