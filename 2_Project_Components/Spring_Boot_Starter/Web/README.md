@@ -121,35 +121,35 @@ The **spring-boot-starter-web** contains the spring web dependencies that includ
 - spring-mvc
 - spring-boot-starter-tomcat
 
-While the **spring-boot-starter-tomcat** contains everything related to Tomcat server.
+While the **spring-boot-starter-tomcat** contains everything related to **Tomcat** server.
 
 - core
 - el
 - logging
 - websocket
 
-The starter-tomcat has the following dependencies:
+The **starter-tomcat** has the following dependencies:
 
 ```xml
 <dependency>  
-        <groupId>org.apache.tomcat.embed</groupId>  
-        <artifactId>tomcat-embed-core</artifactId>  
-        <version>8.5.23</version>  
-        <scope>compile</scope>  
+    <groupId>org.apache.tomcat.embed</groupId>  
+    <artifactId>tomcat-embed-core</artifactId>  
+    <version>8.5.23</version>  
+    <scope>compile</scope>  
 </dependency>
 
 <dependency>  
-        <groupId>org.apache.tomcat.embed</groupId>  
-        <artifactId>tomcat-embed-el</artifactId>  
-        <version>8.5.23</version>  
-        <scope>compile</scope>  
+    <groupId>org.apache.tomcat.embed</groupId>  
+    <artifactId>tomcat-embed-el</artifactId>  
+    <version>8.5.23</version>  
+    <scope>compile</scope>  
 </dependency>  
 
 <dependency>  
-        <groupId>org.apache.tomcat.embed</groupId>  
-        <artifactId>tomcat-embed-websocket</artifactId>  
-        <version>8.5.23</version>  
-        <scope>compile</scope>  
+    <groupId>org.apache.tomcat.embed</groupId>  
+    <artifactId>tomcat-embed-websocket</artifactId>  
+    <version>8.5.23</version>  
+    <scope>compile</scope>  
 </dependency>  
 ```
 
@@ -157,13 +157,13 @@ We can also use **spring-mvc** without using the embedded Tomcat server. If we w
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-web</artifactId>  
-        <exclusions>  
-                <exclusion>  
-                        <groupId>org.springframework.boot</groupId>  
-                        <artifactId>spring-boot-starter-tomcat</artifactId>  
-                </exclusion>  
-        </exclusions>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-web</artifactId>  
+    <exclusions>  
+            <exclusion>  
+                    <groupId>org.springframework.boot</groupId>  
+                    <artifactId>spring-boot-starter-tomcat</artifactId>  
+            </exclusion>  
+    </exclusions>  
 </dependency>  
 ```
