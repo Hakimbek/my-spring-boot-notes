@@ -93,3 +93,16 @@ class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="e
 </bean>  
 <tx:annotation-driven transaction-manager="transactionManager"/>  
 ```
+
+## Disable Auto-configuration Classes
+We can also disable the specific auto-configuration classes, if we do not want to be applied. We use the exclude attribute of the annotation @EnableAutoConfiguration to disable the auto-configuration classes. For example:
+
+```java
+@Configuration(proxyBeanMethods = false)  
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})  
+public class MyConfiguration {  
+
+}  
+```
+
+We can use the attribute excludeName of the annotation @EnableAutoConfiguration and specify the qualified name of the class, if the class is not on the class path. We can exclude any number of auto-configuration classes by using the property **spring.autoconfigure.exclude**.
