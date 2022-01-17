@@ -141,8 +141,9 @@ The persistence layer contains all the storage logic and translates business obj
 ### Database Layer
 In the database layer, CRUD (create, retrieve, update, delete) operations are performed.
 
-| Presenattion Layer | Authentication, JSON Translation |
-| ------------------ | -------------------------------- |
-| Business Layer | Bisness Logic, Validation, Authorisation |
-| ------------------ | ------------------------------------ |
+| Presenattion Layer | Authentication, JSON Translation         |
+| ------------------ | ---------------------------------------- |
+
+| Business Layer     | Bisness Logic, Validation, Authorisation |
+| ------------------ | ---------------------------------------- |
 
