@@ -77,13 +77,13 @@ It is compatible for web development
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-web</artifactId>  
-        <version>latest-ver</version>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-web</artifactId>  
+    <version>latest-ver</version>  
 </dependency>  
 ```
 
-Starter of Spring web uses Spring MVC, REST and Tomcat as a default embedded server. The single spring-boot-starter-web dependency transitively pulls in all dependencies related to web development. It also reduces the build dependency count. The spring-boot-starter-web transitively depends on the following:
+Starter of Spring web uses **Spring MVC, REST** and **Tomcat** as a default embedded server. The single **spring-boot-starter-web** dependency transitively pulls in all dependencies related to web development. It also reduces the build dependency count. The **spring-boot-starter-web** transitively depends on the following:
 
 - org.springframework.boot:spring-boot-starter
 - org.springframework.boot:spring-boot-starter-tomcat
@@ -92,23 +92,23 @@ Starter of Spring web uses Spring MVC, REST and Tomcat as a default embedded ser
 - org.springframework:spring-web
 - org.springframework:spring-webmvc
 
-By default, the spring-boot-starter-web contains the following tomcat server dependency:
+By default, the **spring-boot-starter-web** contains the following tomcat server dependency:
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-tomcat</artifactId>  
-        <version>latest-ver</version>  
-        <scope>compile</scope>  
-</dependency>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-tomcat</artifactId>  
+    <version>latest-ver</version>  
+    <scope>compile</scope>  
+</dependency>
+```
 
-The spring-boot-starter-web auto-configures the following things that are required for the web development:
+The **spring-boot-starter-web** auto-configures the following things that are required for the web development:
 
 - Dispatcher Servlet
 - Error Page
 - Web JARs for managing the static dependencies
 - Embedded servlet container
-```
 
 ## Spring Boot Embedded Web Server
 Each Spring Boot application includes an embedded server. Embedded server is embedded as a part of deployable application. The advantage of embedded server is, we do not require pre-installed server in the environment. With Spring Boot, default embedded server is **Tomcat**. Spring Boot also supports another two embedded servers:
@@ -124,29 +124,30 @@ For reactive stack applications, the **spring-boot-starter-webflux** includes Re
 ## Jetty Server
 The Spring Boot also supports an embedded server called **Jetty Server**. It is an HTTP server and Servlet container that has the capability of serving static and dynamic content. It is used when machine to machine communication is required.
 
-If we want to add the Jetty server in the application, we need to add the **spring-boot-starter-jetty** dependency in our **pom.xml** file.
+If we want to add the **Jetty** server in the application, we need to add the **spring-boot-starter-jetty** dependency in our **pom.xml** file.
 
-**Remember: While using Jetty server in the application, make sure that the default Tomcat server is excluded from the spring-boot-starter-web. It avoids the conflict between servers.**
+### Remember
+While using **Jetty** server in the application, make sure that the default **Tomcat** server is excluded from the **spring-boot-starter-web**. It avoids the conflict between servers.
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-web</artifactId>  
-        <exclusions>  
-                <exclusion>  
-                        <groupId>org.springframework.boot</groupId>  
-                        <artifactId>spring-boot-starter-tomcat</artifactId>  
-                </exclusion>  
-        </exclusions>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-web</artifactId>  
+    <exclusions>  
+            <exclusion>  
+                    <groupId>org.springframework.boot</groupId>  
+                    <artifactId>spring-boot-starter-tomcat</artifactId>  
+            </exclusion>  
+    </exclusions>  
 </dependency>
 
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-jetty</artifactId>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-jetty</artifactId>  
 </dependency>  
 ```
 
-We can also customize the behavior of the Jetty server by using the **application.properties** file.
+We can also customize the behavior of the **Jetty** server by using the **application.properties** file.
 
 ## Undertow Server
 Spring Boot provides another server called Undertow. It is also an embedded web server like **Jetty**. It is written in Java and manage and sponsored by **JBoss**. The main advantages of Undertow server are:
