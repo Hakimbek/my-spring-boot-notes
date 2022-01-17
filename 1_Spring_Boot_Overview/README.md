@@ -1,92 +1,95 @@
 # Spring Boot 
-Spring Boot Tutorial provides basic and advanced concepts of Spring Framework. Our Spring Boot Tutorial is designed for beginners and professionals both.
+Spring Boot is a Spring module that provides the **RAD (Rapid Application Development)** feature to the Spring framework.
 
-Spring Boot is a Spring module that provides the RAD (Rapid Application Development) feature to the Spring framework.
+## What is Spring Boot
+Spring Boot is a project that is built on the top of the **Spring Framework**. It provides an easier and faster way to set up, configure and run both simple and web-based applications.
+It is a Spring module that provides the **RAD (Rapid Application Development)** feature to the Spring Framework. It is used to create a stand-alone Spring-based application that you can just run because it needs minimal Spring configuration.
 
-Our Spring Boot Tutorial includes all topics of Spring Boot such, as features, project, maven project, starter project wizard, Spring Initializr, CLI, applications, annotations, dependency management, properties, starters, Actuator, JPA, JDBC, etc.
+In short, Spring Boot is the combination of **Spring Framework** and **Embedded Servers**.
 
-What is Spring Boot
-Spring Boot is a project that is built on the top of the Spring Framework. It provides an easier and faster way to set up, configure, and run both simple and web-based applications.
-It is a Spring module that provides the RAD (Rapid Application Development) feature to the Spring Framework. It is used to create a stand-alone Spring-based application that you can just run because it needs minimal Spring configuration.
+In Spring Boot, there is no requirement for **XML configuration (deployment descriptor)**. It uses convention over configuration software design paradigm that means it decreases the effort of the developer.
 
-, many other Spring sister projects help to build applications addressing modern business needs. There are the following Spring sister projects are as follows:
+### Why should we use Spring Boot Framework?
 
-Spring Data: It simplifies data access from the relational and NoSQL databases.
-Spring Batch: It provides powerful batch processing.
-Spring Security: It is a security framework that provides robust security to applications.
-Spring Social: It supports integration with social networking like LinkedIn.
-Spring Integration: It is an implementation of Enterprise Integration Patterns. It facilitates integration with other enterprise applications using lightweight messaging and declarative adapters.
-Advantages of Spring Boot
-It creates stand-alone Spring applications that can be started using Java -jar.
-It tests web applications easily with the help of different Embedded HTTP servers such as Tomcat, Jetty, etc. We don't need to deploy WAR files.
-It provides opinionated 'starter' POMs to simplify our Maven configuration.
-It provides production-ready features such as metrics, health checks, and externalized configuration.
-There is no requirement for XML configuration.
-It offers a CLI tool for developing and testing the Spring Boot application.
-It offers the number of plug-ins.
-It also minimizes writing multiple boilerplate codes (the code that has to be included in many places with little or no alteration), XML configuration, and annotations.
-It increases productivity and reduces development time.
-Limitations of Spring Boot
-Spring Boot can use dependencies that are not going to be used in the application. These dependencies increase the size of the application.
+- The dependency injection approach is used in Spring Boot.
+- It contains powerful database transaction management capabilities.
+- It simplifies integration with other Java frameworks like **JPA/Hibernate ORM, Struts, etc**.
+- It reduces the cost and development time of the application.
 
-Goals of Spring Boot
-The main goal of Spring Boot is to reduce development, unit test, and integration test time.
+Along with the Spring Boot Framework, many other Spring sister projects help to build applications addressing modern business needs. There are the following Spring sister projects are as follows:
 
-Provides Opinionated Development approach
-Avoids defining more Annotation Configuration
-Avoids writing lots of import statements
-Avoids XML Configuration.
+- **Spring Data:** It simplifies data access from the **relational** and **NoSQL databases**.
+- **Spring Batch:** It provides powerful batch processing.
+- **Spring Security:** It is a security framework that provides robust security to applications.
+- **Spring Social:** It supports integration with social networking like **LinkedIn**.
+- **Spring Integration:** It is an implementation of **Enterprise Integration Patterns**. It facilitates integration with other enterprise applications using lightweight messaging and declarative adapters.
+
+### Advantages of Spring Boot
+- It creates stand-alone Spring applications that can be started using Java -jar.
+- It tests web applications easily with the help of different Embedded HTTP servers such as **Tomcat, Jetty, etc**. We don't need to deploy WAR files.
+- It provides opinionated **'starter' POMs** to simplify our **Maven** configuration.
+- It provides production-ready features such as metrics, health checks, and externalized configuration.
+- There is no requirement for XML configuration.
+- It offers a CLI tool for developing and testing the Spring Boot application.
+- It offers the number of plug-ins.
+- It also minimizes writing multiple boilerplate codes (the code that has to be included in many places with little or no alteration), XML configuration, and annotations.
+- It increases productivity and reduces development time.
+
+### Limitations of Spring Boot
+- Spring Boot can use dependencies that are not going to be used in the application. These dependencies increase the size of the application.
+
+## Goals of Spring Boot
+The main goal of Spring Boot is to reduce development, unit test and integration test time.
+
+- Provides Opinionated Development approach
+- Avoids defining more Annotation Configuration
+- Avoids writing lots of import statements
+- Avoids XML Configuration.
+
 By providing or avoiding the above points, Spring Boot Framework reduces Development time, Developer Effort, and increases productivity.
 
-Web Development
+## Spring Boot Features
 
-It is a well-suited Spring module for web application development. We can easily create a self-contained HTTP application that uses embedded servers like Tomcat, Jetty, or Undertow. We can use the spring-boot-starter-web module to start and run the application quickly.
+### Web Development
+- It is a well-suited Spring module for web application development. We can easily create a self-contained HTTP application that uses embedded servers like Tomcat, Jetty or Undertow. We can use the **spring-boot-starter-web** module to start and run the application quickly.
 
-SpringApplication
+### SpringApplication
+- The SpringApplication is a class that provides a convenient way to bootstrap a Spring application. It can be started from the **main** method. We can call the application just by calling a static **run()** method.
 
-The SpringApplication is a class that provides a convenient way to bootstrap a Spring application. It can be started from the main method. We can call the application just by calling a static run() method.
-
-public static void main(String[] args)  
-{    
-SpringApplication.run(ClassName.class, args);    
+```java
+public static void main(String[] args) {    
+  SpringApplication.run(ClassName.class, args);    
 }  
+```
 
-Application Events and Listeners
+### Application Events and Listeners
+- Spring Boot uses events to handle the variety of tasks. It allows us to create factories file that is used to add listeners. We can refer it to using the **ApplicationListener** key.
+Always create factories file in **META-INF** folder like **META-INF/spring.factories**.
 
-pring Boot uses events to handle the variety of tasks. It allows us to create factories file that is used to add listeners. We can refer it to using the ApplicationListener key.
+### Admin Support
+- Spring Boot provides the facility to enable admin-related features for the application. It is used to access and manage applications remotely. We can enable it in the Spring Boot application by using **spring.application.admin.enabled** property.
 
-Always create factories file in META-INF folder like META-INF/spring.factories.
+### Externalized Configuration
+- Spring Boot allows us to externalize our configuration so that we can work with the same application in different environments. The application uses **YAML** files to externalize configuration.
 
-Admin Support
+### Properties Files
+- Spring Boot provides a rich set of Application Properties. So, we can use that in the properties file of our project. The properties file is used to set properties like **server-port=8082** and many others. It helps to organize application properties.
 
-Spring Boot provides the facility to enable admin-related features for the application. It is used to access and manage applications remotely. We can enable it in the Spring Boot application by using spring.application.admin.enabled property.
+### YAML Support
+- It provides a convenient way of specifying the hierarchical configuration. It is a superset of **JSON**. The **SpringApplication** class automatically supports **YAML**. It is an alternative of properties file.
 
-Externalized Configuration
+### Type-safe Configuration
+- The strong type-safe configuration is provided to govern and validate the configuration of the application. Application configuration is always a crucial task which should be type-safe. We can also use annotation provided by this library.
 
-Spring Boot allows us to externalize our configuration so that we can work with the same application in different environments. The application uses YAML files to externalize configuration.
+### Logging
+- Spring Boot uses Common logging for all internal logging. Logging dependencies are managed by default. We should not change logging dependencies if no customization is needed.
 
-Properties Files
+### Security
+- Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. A rich set of Endpoints is available to develop a secure Spring Boot application.
 
-Spring Boot provides a rich set of Application Properties. So, we can use that in the properties file of our project. The properties file is used to set properties like server-port =8082 and many others. It helps to organize application properties.
-
-YAML Support
-It provides a convenient way of specifying the hierarchical configuration. It is a superset of JSON. The SpringApplication class automatically supports YAML. It is an alternative of properties file.
-
-Type-safe Configuration
-
-The strong type-safe configuration is provided to govern and validate the configuration of the application. Application configuration is always a crucial task which should be type-safe. We can also use annotation provided by this library.
-
-Logging
-
-Spring Boot uses Common logging for all internal logging. Logging dependencies are managed by default. We should not change logging dependencies if no customization is needed.
-
-Security
-
-Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. A rich set of Endpoints is available to develop a secure Spring Boot application.
-
-Spring vs. Spring Boot vs. Spring MVC
-Spring vs. Spring Boot
-Spring: Spring Framework is the most popular application development framework of Java. The main feature of the Spring Framework is dependency Injection or Inversion of Control (IoC). With the help of Spring Framework, we can develop a loosely coupled application. It is better to use if application type or characteristics are purely defined.
+## Spring vs. Spring Boot
+### Spring 
+Spring Framework is the most popular application development framework of Java. The main feature of the Spring Framework is dependency Injection or Inversion of Control (IoC). With the help of Spring Framework, we can develop a loosely coupled application. It is better to use if application type or characteristics are purely defined.
 
 Spring Boot: Spring Boot is a module of Spring Framework. It allows us to build a stand-alone application with minimal or zero configurations. It is better to use if we want to develop a simple Spring-based application or RESTful services.
 
