@@ -153,7 +153,7 @@ The **starter-tomcat** has the following dependencies:
 </dependency>  
 ```
 
-We can also use **spring-mvc** without using the embedded Tomcat server. If we want to do so, we need to exclude the Tomcat server by using the `<exclusion>` tag, as shown in the following code.
+We can also use **spring-mvc** without using the embedded **Tomcat** server. If we want to do so, we need to exclude the Tomcat server by using the `<exclusion>` tag, as shown in the following code.
 
 ```xml
 <dependency>  
