@@ -151,3 +151,61 @@ Let's open the **parent POM** and see what it configures when we create Maven mo
     </modules>  
 </project> 
 ```
+
+The above pom file is same as we have seen in the previous examples. But in this pom file, two things to be noticed: packaging and modules.
+
+When we create **multi-module** project, we need to configure packaging pom in the parent pom file instead of jar.
+
+```xml
+<packaging>pom</packaging>  
+```
+
+When we create Maven Modules in the project, Spring Boot automatically configures the modules in the parent pom inside the module tag, as shown below.
+
+```xml
+<modules>  
+  <module>module1</module>  
+  <module>module2</module>  
+</modules>  
+```
+
+Now, we are going to see what inside the pom file of **module1**.
+
+### pom.xml
+
+```xml
+<?xml version="1.0"?>  
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" 
+         xmlns="http://maven.apache.org/POM/4.0.0"  
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+  
+  <modelVersion>4.0.0</modelVersion>  
+    
+  <parent>  
+    <groupId>com.javatpoint</groupId>  
+    <artifactId>spring-boot-multi-module-project</artifactId>  
+    <version>0.0.1-SNAPSHOT</version>  
+  </parent>  
+  
+  <groupId>com.javatpoint</groupId>  
+  <artifactId>module1</artifactId>  
+  <version>0.0.1-SNAPSHOT</version>  
+  <name>module1</name>  
+  <url>http://maven.apache.org</url>  
+  
+  <properties>  
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+  </properties>  
+  
+  <dependencies>  
+    <dependency>  
+      <groupId>junit</groupId>  
+      <artifactId>junit</artifactId>  
+      <version>3.8.1</version>  
+      <scope>test</scope>  
+    </dependency>  
+  </dependencies>  
+</project>  
+```
+
+Here, a point to be noticed that the above pom file does not contain the common dependencies like **starter-web, web-mvc, etc**. It inherits all the common dependencies and the properties from the parent pom.
