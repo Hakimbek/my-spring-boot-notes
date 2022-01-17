@@ -28,3 +28,126 @@ The EAR file contains one or many WAR files. Each WAR file contains the service 
 - The child modules are independent maven projects that share properties from the parent project.
 - All child projects can be built with a single command because it is inside a parent project.
 - It is easier to define the relationship between the projects.
+
+# Multi-Module Project Directory Structure
+Let's understand the multi-module project directory structure.
+
+We have created a project named **spring-boot-multi-module-project**. It contains the parent **pom** at the bottom of the directory. After that, we have created two Maven Modules named **module1** and **module2**, respectively. These two modules contain their own **pom** files.
+
+Let's open the **parent POM** and see what it configures when we create Maven modules in the project.
+
+### pom.xml
+
+```xml  
+<?xml version="1.0" encoding="UTF-8"?>  
+  <project xmlns="http://maven.apache.org/POM/4.0.0" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">  
+  
+    <modelVersion>4.0.0</modelVersion>  
+
+    <parent>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-parent</artifactId>  
+      <version>2.2.2.BUILD-SNAPSHOT</version>  
+      <relativePath/> <!-- lookup parent from repository -->  
+    </parent>  
+    
+    <groupId>com.javatpoint</groupId>  
+    <artifactId>spring-boot-example</artifactId>  
+    <version>0.0.1-SNAPSHOT</version>  
+    <name>spring-boot-multi-module-project</name>  
+    <description>Demo project for Spring Boot</description>  
+  
+    <properties>  
+      <java.version>1.8</java.version>  
+    </properties>  
+    
+    <packaging>pom</packaging>  
+    
+    <dependencies>  
+      <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter</artifactId>  
+      </dependency>   
+      
+      <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-parent</artifactId>  
+        <version>2.2.1.RELEASE</version>  
+        <type>pom</type>  
+      </dependency>  
+      
+      <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-web</artifactId>  
+      </dependency>  
+      
+      <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-webmvc</artifactId>  
+      </dependency>  
+      
+      <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-test</artifactId>  
+        <scope>test</scope>  
+        <exclusions>  
+          <exclusion>  
+            <groupId>org.junit.vintage</groupId>  
+            <artifactId>junit-vintage-engine</artifactId>  
+          </exclusion>  
+        </exclusions>  
+      </dependency>  
+      
+    </dependencies> 
+    
+    <build>  
+      <plugins>  
+        <plugin>  
+          <groupId>org.springframework.boot</groupId>  
+          <artifactId>spring-boot-maven-plugin</artifactId>  
+        </plugin>  
+      </plugins>  
+    </build>  
+    
+    <repositories>  
+      <repository>  
+        <id>spring-milestones</id>  
+        <name>Spring Milestones</name>  
+        <url>https://repo.spring.io/milestone</url>  
+      </repository>
+      
+      <repository>  
+        <id>spring-snapshots</id>  
+        <name>Spring Snapshots</name>  
+        <url>https://repo.spring.io/snapshot</url>  
+          <snapshots>  
+            <enabled>true</enabled>  
+          </snapshots> 
+      </repository>  
+    </repositories>  
+    
+    <pluginRepositories>  
+      <pluginRepository>  
+        <id>spring-milestones</id>  
+        <name>Spring Milestones</name>  
+        <url>https://repo.spring.io/milestone</url>  
+      </pluginRepository>  
+      
+      <pluginRepository>  
+        <id>spring-snapshots</id>  
+        <name>Spring Snapshots</name>  
+        <url>https://repo.spring.io/snapshot</url>  
+        <snapshots>  
+          <enabled>true</enabled>  
+        </snapshots>  
+      </pluginRepository>  
+    </pluginRepositories>  
+    
+    <modules>  
+      <module>module1</module>  
+      <module>module2</module>  
+    </modules>  
+</project> 
+```
