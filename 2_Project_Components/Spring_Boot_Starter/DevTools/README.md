@@ -5,9 +5,9 @@ We can implement the DevTools in our project by adding the following dependency 
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-devtools</artifactId>  
-        <scope>runtime<scope >  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-devtools</artifactId>  
+    <scope>runtime<scope >  
 </dependency>  
 ```
 
