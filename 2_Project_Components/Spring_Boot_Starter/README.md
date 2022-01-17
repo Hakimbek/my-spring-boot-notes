@@ -68,6 +68,30 @@ The Spring Boot Framework provides the following application starters under the 
 | spring-boot-starter-tomcat | It is used for Tomcat as the embedded servlet container. Default servlet container starter used by spring-boot-starter-web. |
 | spring-boot-starter-log4j2 | It is used for Log4j2 for logging. An alternative to spring-boot-starter-logging. |
 
+# Spring Boot Starter Parent
+The **spring-boot-starter-parent** is a project starter. It provides default configurations for our applications. It is used internally by all dependencies. All Spring Boot projects use **spring-boot-starter-parent** as a parent in **pom.xml** file.
+
+```xml
+<parent>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-parent</artifactId>  
+    <version>latest-ver</version>  
+</parent>  
+```
+
+Parent Poms allow us to manage the following things for multiple child projects and modules:
+
+### Configuration
+It allows us to maintain consistency of Java Version and other related properties.
+
+### Dependency Management
+It controls the versions of dependencies to avoid conflict.
+
+### Source encoding
+### Default Java Version
+### Resource filtering
+### It also controls the default plugin configuration.
+
 # Spring Boot Starter Web
 There are two important features of **spring-boot-starter-web**:
 
