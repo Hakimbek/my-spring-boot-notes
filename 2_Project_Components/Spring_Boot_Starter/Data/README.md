@@ -40,9 +40,9 @@ Spring Data JPA provides three repositories are as follows:
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.data</groupId>  
-        <artifactId>spring-data-jpa</artifactId>  
-        <version>latest-ver</version>  
+    <groupId>org.springframework.data</groupId>  
+    <artifactId>spring-data-jpa</artifactId>  
+    <version>latest-ver</version>  
 </dependency>  
 ```
 
@@ -51,9 +51,9 @@ Spring Boot provides spring-boot-starter-data-jpa dependency to connect Spring a
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-data-jpa</artifactId>  
-        <version>latest-ver</version>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-data-jpa</artifactId>  
+    <version>latest-ver</version>  
 </dependency>  
 ```
 
