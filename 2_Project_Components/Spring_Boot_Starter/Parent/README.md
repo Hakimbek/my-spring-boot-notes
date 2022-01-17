@@ -139,3 +139,22 @@ The **spring-boot-starter-parent** dependency inherit from the **spring-boot-dep
     <maven>3.2.1</maven>  
 </prerequisites>  
 ```
+
+# Spring Boot Starter without Parent
+In some cases, we need not to inherit **spring-boot-starter-parent** in the **pom.xml** file. To handle such use cases, Spring Boot provides the flexibility to still use the dependency management without inheriting the **spring-boot-starter-parent**.
+
+```xml
+<dependencyManagement>  
+    <dependencies>  
+        <dependency>  
+        <!-- Import dependency management from Spring Boot -->  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-dependencies</artifactId>  
+            <version>2.1.1.RELEASE</version>  
+            <type>pom</type>  
+            <scope>import</scope>  
+        </dependency>  
+    </dependencies>  
+</dependencyManagement>  
+```
+In the above code, we can see that we have used `<scope>` tag for this. It is useful when we want to use different version for a certain dependency.
