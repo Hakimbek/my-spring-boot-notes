@@ -20,7 +20,7 @@ Parent Poms allow us to manage the following things for multiple child projects 
 
 The **spring-boot-starter-parent** inherits dependency management from **spring-boot-dependencies**. We only need to specify the Spring Boot version number. If there is a requirement of the additional starter, we can safely omit the version number.
 
-## Spring Boot Starter Parent Internal
+# Spring Boot Starter Parent Internal
 The **spring-boot-starter-parent** inherits dependency management from **spring-boot-dependencies**. We only need to specify the Spring Boot version number. If there is a requirement of the additional starter, we can safely omit the version number.
 
 ```xml
