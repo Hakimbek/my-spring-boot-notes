@@ -23,3 +23,8 @@ For example, we are creating an **EAR (Enterprise ARchive)**, **WAR (Web ARchive
 The EAR file contains one or many WAR files. Each WAR file contains the service project that has common code to all WAR files and packaging type in the JAR.
 
 ![Multi Module Photo](/2_Project_Components/Multi_Module_Project/image/ear.png)
+
+## Maven child projects/modules
+- The child modules are independent maven projects that share properties from the parent project.
+- All child projects can be built with a single command because it is inside a parent project.
+- It is easier to define the relationship between the projects.
