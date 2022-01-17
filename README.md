@@ -1,6 +1,6 @@
 # Spring Boot Tutorial
-  - ### [Spirng Boot Overview](1_Spring_Boot_Overview/README.md)
-  - ### Project Components
+  - ## [Spirng Boot Overview](1_Spring_Boot_Overview/README.md)
+  - ## Project Components
     - ### [Spring Boot Annotations](2_Project_Components/Spring_Boot_Annotation/README.md)
     - ### [Application Properties](2_Project_Components/Application_Properties/README.md)
     - ### [Spring Boot Starters](2_Project_Components/Spring_Boot_Starter/README.md)
