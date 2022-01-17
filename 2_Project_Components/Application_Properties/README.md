@@ -21,7 +21,7 @@ In the above example, we have configured the application name and port. The port
 
 ### YAML Properties File
 
-Spring Boot provides another file to configure the properties is called **yml** file. The Yaml file works because the Snake YAML jar is present in the classpath. Instead of using the **application.properties** file, we can also use the **application.yml** file, but the Yml file should be present in the classpath.
+Spring Boot provides another file to configure the properties is called **yml** file. The Yaml file works because the **Snake YAML** jar is present in the classpath. Instead of using the **application.properties** file, we can also use the **application.yml** file, but the Yml file should be present in the classpath.
 
 ```yml
 spring:  
