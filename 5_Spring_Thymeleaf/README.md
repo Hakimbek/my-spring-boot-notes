@@ -87,16 +87,3 @@ We can implement Thymeleaf template engine by adding spring-boot-starter-thymele
 <artifactId>spring-boot-starter-thymeleaf</artifactId>  
 </dependency>  
 ```
-
-# Spring Boot Thymeleaf Example
-
-## Step 1
-Generate Spring Boot Project and add  Spring Web and Thymeleaf dependencies.
-
-## Step 2
-Create a model class in the package **io.spring.boot**. We have created a model class with the name User.
-
-In this class, we have defined two variables name and email and generate Getters and Setters.
-
-```java
-```
