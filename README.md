@@ -18,7 +18,7 @@
       
     - ### [Dependency Management](2_Project_Components/Dependency_Management/README.md)
 
-    - ### [Multi Module Project](2_Project_Components.Multi_Module_Project/README.md)
+    - ### [Multi Module Project](2_Project_Components/Multi_Module_Project/README.md)
     
   - ## [Spring Boot AOP](3_Spring_Boot_AOP/README.md)
   
