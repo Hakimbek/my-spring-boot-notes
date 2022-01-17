@@ -82,24 +82,24 @@ For example, to upgrade another **spring-data-releasetrain**, add the following 
 
 ```xml
 <dependencyManagement>  
-  <dependencies>  
-  <!--Override Spring Data release train-->  
-    <dependency>  
-      <groupId>org.springframework.data</groupId>  
-      <artifactId>spring-data-releasetrain</artifactId>  
-      <version>Fowler-SR2</version>  
-      <type>pom</type>  
-      <scope>import</scope>  
-    </dependency>  
+    <dependencies>  
+        <!--Override Spring Data release train-->  
+        <dependency>  
+            <groupId>org.springframework.data</groupId>  
+            <artifactId>spring-data-releasetrain</artifactId>  
+            <version>Fowler-SR2</version>  
+            <type>pom</type>  
+            <scope>import</scope>  
+        </dependency>  
     
-    <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-dependencies</artifactId>  
-      <version>2.2.2.RELEASE</version>  
-      <type>pom</type>  
-      <scope>import</scope>  
-    </dependency>  
-  </dependencies>  
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-dependencies</artifactId>  
+            <version>2.2.2.RELEASE</version>  
+            <type>pom</type>  
+            <scope>import</scope>  
+        </dependency>  
+    </dependencies>  
 </dependencyManagement> 
 ```
 
