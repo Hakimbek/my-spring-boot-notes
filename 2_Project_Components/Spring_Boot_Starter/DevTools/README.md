@@ -14,11 +14,11 @@ We can implement the DevTools in our project by adding the following dependency 
 ## Spring Boot DevTools Features
 
 ### Property Defaults
-Spring Boot provides templating technology Thymeleaf that contains the property spring.thymeleaf.cache. It disables the caching and allows us to update pages without the need of restarting the application. But setting up these properties during the development always creates some problems.
+Spring Boot provides templating technology Thymeleaf that contains the property **spring.thymeleaf.cache**. It disables the caching and allows us to update pages without the need of restarting the application. But setting up these properties during the development always creates some problems.
 
-When we use the spring-boot-devtools module, we are not required to set properties. During the development caching for Thymeleaf, Freemarker, Groovy Templates are automatically disabled.
+When we use the **spring-boot-devtools** module, we are not required to set properties. During the development caching for Thymeleaf, Freemarker, Groovy Templates are automatically disabled.
 
-> Note: If we do not want to apply property defaults on an application, we can set configprop:spring.devtools.add-properties to false in the application.properties file.
+> Note: If we do not want to apply property defaults on an application, we can set **configprop:spring.devtools.add-properties** to false in the **application.properties** file.
 
 ### Automatic Restart
 Auto-restart means reloading of Java classes and configure it at the server-side. After the server-side changes, it deployed dynamically, server restarts happen, and load the modified code. It is mostly used in microservice-based applications. Spring Boot uses two types of ClassLoaders:
