@@ -59,7 +59,8 @@ We can also add Maven plugin in our **pom.xml** file. It wraps the project into 
 ### Spring Boot without Parent POM
 If we don't want to use **spring-boot-starter-parent** dependency, but still want to take the advantage of the dependency management, we can use `<scope>` tag, as follows:
 
-> Note: It does not maintain the plugin management.
+### Note
+It does not maintain the plugin management.
 
 ```xml
 <dependencyManagement>  
