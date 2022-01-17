@@ -1,7 +1,7 @@
 # Spring Data JPA
 Spring Data is a high-level Spring Source project. Its purpose is to unify and easy access to the different kinds of persistence stores, both relational database systems and NoSQL data stores.
 
-When we implement a new application, we should focus on the business logic instead of technical complexity and boilerplate code. That's why the Java Persistent API (JPA) specification and Spring Data JPA are extremely popular.
+When we implement a new application, we should focus on the business logic instead of technical complexity and boilerplate code. That's why the **Java Persistent API (JPA)** specification and **Spring Data JPA** are extremely popular.
 
 Spring Data JPA adds a layer on the top of JPA. It means, Spring Data JPA uses all features defined by JPA specification, especially the entity, association mappings, and JPA's query capabilities. Spring Data JPA adds its own features such as the no-code implementation of the repository pattern and the creation of database queries from the method name.
 
