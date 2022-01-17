@@ -7,7 +7,7 @@ Spring Boot manages dependencies and configuration automatically. Each release o
 - We only need to write a library name with specifying the version. It is helpful in multi-module projects.
 
 ## Maven Dependency Management System
-The Maven project inherits the following features from spring-boot-starter-parent:
+The Maven project inherits the following features from **spring-boot-starter-parent**:
 
 - The default Java compiler version
 - UTF-8 source encoding
