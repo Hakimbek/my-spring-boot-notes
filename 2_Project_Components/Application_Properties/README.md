@@ -3,7 +3,7 @@ Spring Boot Framework comes with a built-in mechanism for application configurat
 
 Spring Boot provides various properties that can be configured in the **application.properties** file. The properties have default values. We can set a property(s) for the Spring Boot application. Spring Boot also allows us to define our own property if required.
 
-The application.properties file allows us to run an application in a different environment. In short, we can use the application.properties file to:
+The **application.properties** file allows us to run an application in a different environment. In short, we can use the application.properties file to:
 
 - Configure the Spring Boot framework
 - define our application custom configuration properties
