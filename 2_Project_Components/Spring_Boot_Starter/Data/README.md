@@ -32,7 +32,7 @@ There are some other features are as follows:
 - It implements a domain base class that provides basic properties.
 - It supports several modules such as Spring Data JPA, Spring Data MongoDB, Spring Data REST, Spring Data Cassandra, etc.
 
-### Spring Data Repository
+## Spring Data Repository
 Spring Data JPA provides three repositories are as follows:
 - **CrudRepository:** It offers standard create, read, update, and delete It contains method like findOne(), findAll(), save(), delete(), etc.
 - **PagingAndSortingRepository:** It extends the CrudRepository and adds the findAll methods. It allows us to sort and retrieve the data in a paginated way.
