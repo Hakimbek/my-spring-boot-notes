@@ -89,27 +89,28 @@ Spring Boot provides another server called Undertow. It is also an embedded web 
 - Flexible
 - Embeddable
 
-**Remember: While using Undertow server in the application, make sure that the default Tomcat server is excluded from the spring-boot-starter-web. It avoids the conflict between servers.**
+Remember:
+While using Undertow server in the application, make sure that the default **Tomcat** server is excluded from the **spring-boot-starter-web**. It avoids the conflict between servers.
 
 ```xml
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-web</artifactId>  
-        <exclusions>  
-                <exclusion>  
-                        <groupId>org.springframework.boot</groupId>  
-                        <artifactId>spring-boot-starter-tomcat</artifactId>  
-                </exclusion>  
-        </exclusions>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-web</artifactId>  
+    <exclusions>  
+            <exclusion>  
+                    <groupId>org.springframework.boot</groupId>  
+                    <artifactId>spring-boot-starter-tomcat</artifactId>  
+            </exclusion>  
+    </exclusions>  
 </dependency>  
 
 <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-undertow</artifactId>  
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-undertow</artifactId>  
 </dependency>  
 ```
 
-We can also customize the behavior of the Jetty server by using the **application.properties** file.
+We can also customize the behavior of the **Undertow ** server by using the **application.properties** file.
 
 ## spring-boot-starter-web vs. spring-boot-starter-tomcat
 The **spring-boot-starter-web** contains the spring web dependencies that includes **spring-boot-starter-tomcat**. The **spring-boot-starter-web** contains the following:
