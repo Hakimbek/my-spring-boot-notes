@@ -73,3 +73,23 @@ Similarly, when we use Hibernate/ JPA, we need to configure datasource, a transa
     <jdbc:script location="classpath:config/data.sql" />  
 </jdbc:initialize-database>  
 ```
+
+### Configuring entity manager factory
+
+```xml
+<bean  
+class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">  
+    <property name="persistenceUnitName" value="hsql_pu" />  
+    <property name="dataSource" ref="dataSource" />  
+</bean>
+```
+
+### Configuring transaction manager
+
+```xml
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">  
+    <property name="entityManagerFactory" ref="entityManagerFactory" />  
+    <property name="dataSource" ref="dataSource" />  
+</bean>  
+<tx:annotation-driven transaction-manager="transactionManager"/>  
+```
